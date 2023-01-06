@@ -10,3 +10,9 @@
 [submodule "mods/content/creatura"]
 	path = mods/content/creatura
 	url = https://github.com/ElCeejo/creatura.git
+[submodule "mods/content/mobs_monster"]
+	path = mods/content/mobs_monster
+	url = https://notabug.org/TenPlus1/mobs_monster.git
+[submodule "mods/content/minetest-toolranks"]
+	path = mods/content/minetest-toolranks
+	url = https://github.com/lisacvuk/minetest-toolranks.git

@@ -3,6 +3,5 @@ minetest.register_on_dieplayer(function(player)
 end)
 
 function convert_to_zombie(player)
-	meta = player:get_meta()
-	meta:set_string("is_zombie", "true")
+	player:get_meta():set_string("is_zombie", "true")
 end

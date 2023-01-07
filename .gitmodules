@@ -16,3 +16,6 @@
 [submodule "mods/content/minetest-toolranks"]
 	path = mods/content/minetest-toolranks
 	url = https://github.com/lisacvuk/minetest-toolranks.git
+[submodule "mods/content/3d_armor"]
+	path = mods/content/3d_armor
+	url = https://github.com/minetest-mods/3d_armor.git

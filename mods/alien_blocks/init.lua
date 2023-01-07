@@ -1,3 +1,5 @@
+local S = default.get_translator
+
 local mod_def = minetest.get_modpath("default")
 
 minetest.register_node("alien_blocks:flesh_raw", {
@@ -79,3 +81,16 @@ my_register_stair_and_slab(
 	default.node_sound_metal_defaults(),
 	true
 )
+
+
+minetest.register_node("alien_blocks:dirt_with_alien_grass", {
+	description = S("Dirt with Grass"),
+	tiles = {"default_dirt.png^alien_grass.png", "default_dirt.png",
+		{name = "default_dirt.png^alien_grass_side.png",
+			tileable_vertical = false}},
+	groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1},
+	drop = "default:dirt",
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name = "default_grass_footstep", gain = 0.25},
+	}),
+})

@@ -66,8 +66,18 @@ local function grass_to_dirt(pos1, pos2)
 end
 
 
+local absorb_tool_capabilities = {
+    full_punch_interval = 0.8,
+    damage_groups = { fleshy = 5, choppy = 10 },
 
-local function absorb(pos)
+    -- This is only used for digging nodes, but is still required
+    max_drop_level=1,
+    groupcaps={
+        fleshy={times={[1]=2.5, [2]=1.20, [3]=0.35}, uses=30, maxlevel=2},
+    },
+}
+
+local function absorb(user, pos)
     local pos1       = vector.subtract(pos, { x = 5, y = 5, z = 5 })
     local pos2       = vector.add(pos, { x = 5, y = 5, z = 5 })
     local pos_list   = minetest.find_nodes_in_area(pos1, pos2, { "group:organic" })
@@ -78,22 +88,33 @@ local function absorb(pos)
     points_earned = 0
 
     for i=1, #pos_list do
-        minetest.swap_node(pos_list[i], { name = "default:mese" })
+        minetest.swap_node(pos_list[i], { name = "alien_blocks:dirt_with_alien_grass" })
         points_earned = points_earned  + 1
     end
 
 
     local obj_list = minetest.get_objects_in_area(pos1, pos2)
     for _,obj in pairs(obj_list) do
+        if obj == user then
+            minetest.debug("dont eat self")
+            break
+        end
         local hp = obj:get_hp()
-        local new_hp = math.max(0, hp - 10)
-        obj:set_hp(new_hp)
-        points_earned = points_earned + hp - new_hp
-
+        -- local new_hp = math.max(0, hp - 10)
+        -- obj:set_hp(new_hp)
+        local new_hp = obj:get_hp()
+        local damge_done = hp - new_hp
+        points_earned = points_earned + damge_done 
+        -- obj:get_entity_name() 
+        minetest.debug("i eat people " .. (obj:get_player_name() or obj:get_entity_name() or "other")  .. " and i did " ..  damge_done  )
+        obj:punch(user, nil, absorb_tool_capabilities)
     end
 
     minetest.debug("i ate " .. points_earned)    
 end
+
+
+
 
 minetest.register_chatcommand("echo", {
     privs = {
@@ -125,7 +146,7 @@ minetest.register_tool("mark_organics:eat_tool", {
         local pos = pointed_thing.under or user:get_pos()
         -- minetest.debug(dump(user))
         if pos then
-            absorb(pos)
+            absorb(user, pos)
         end
     end,
     -- default: nil

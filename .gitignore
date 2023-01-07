@@ -20,3 +20,6 @@
 .metadata
 # Idea IDE
 .idea/*
+
+# no more zip files
+*.zip

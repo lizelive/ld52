@@ -39,3 +39,43 @@ minetest.register_node("alien_blocks:meatblock", {
 	on_place = minetest.rotate_node,
 	on_use = minetest.item_eat(20)
 })
+
+
+minetest.register_node("alien_blocks:alienmetalblock", {
+	description = "alien metal block",
+	tiles = {"alien_metal_block.png"},
+	is_ground_content = false,
+	groups = {cracky = 1, level = 2},
+	sounds = default.node_sound_metal_defaults(),
+})
+
+minetest.register_node("alien_blocks:alienmetal", {
+	description = "alien metal",
+	tiles = {"alien_metal.png"},
+	is_ground_content = false,
+	groups = {cracky = 1, level = 2},
+	sounds = default.node_sound_metal_defaults(),
+})
+
+local function my_register_stair_and_slab(subname, recipeitem, groups, images,
+	desc_stair, desc_slab, sounds, worldaligntex)
+stairs.register_stair(subname, recipeitem, groups, images, (desc_stair),
+	sounds, worldaligntex)
+stairs.register_stair_inner(subname, recipeitem, groups, images, "",
+	sounds, worldaligntex, "Inner " .. desc_stair)
+stairs.register_stair_outer(subname, recipeitem, groups, images, "",
+	sounds, worldaligntex, ("Outer " .. desc_stair))
+stairs.register_slab(subname, recipeitem, groups, images, (desc_slab),
+	sounds, worldaligntex)
+end
+
+my_register_stair_and_slab(
+	"alienmetalblock",
+	"alien_blocks:alienmetalblock",
+	{cracky = 1, level = 2},
+	{"alien_metal_block.png"},
+	"alien metal Stair",
+	"alien metal Slab",
+	default.node_sound_metal_defaults(),
+	true
+)

@@ -1,9 +1,13 @@
 minetest.debug("i eat people")
 
 
+local target_absorb_from_mob = 10
+
 local organic_groups = {
     "fleshy", "meat", "eatable", "flora", "grass", "leaves", "spreading_dirt_type"
 }
+
+
 
 
 local organic_nodes = {"default:papyrus", "default:junglegrass"}
@@ -25,11 +29,11 @@ for node_name, node in pairs(minetest.registered_nodes) do
 end
 
 
-for node_name, node in pairs(minetest.registered_nodes) do
-    if node.groups["organic"] then
-        minetest.debug("i ate " .. node_name .. " and its " .. dump(node))
-    end
-end
+-- for node_name, node in pairs(minetest.registered_nodes) do
+--     if node.groups["organic"] then
+--         minetest.debug("i ate " .. node_name .. " and its " .. dump(node))
+--     end
+-- end
 
 local function grass_to_dirt(pos1, pos2)
     local c_dirt  = minetest.get_content_id("default:dirt")
@@ -68,11 +72,27 @@ local function absorb(pos)
     local pos2       = vector.add(pos, { x = 5, y = 5, z = 5 })
     local pos_list   = minetest.find_nodes_in_area(pos1, pos2, { "group:organic" })
     
-    minetest.debug("absorb = " .. dump(pos_list))
+    -- minetest.debug("absorb = " .. dump(pos_list))
+
+
+    points_earned = 0
 
     for i=1, #pos_list do
         minetest.swap_node(pos_list[i], { name = "default:mese" })
+        points_earned = points_earned  + 1
     end
+
+
+    local obj_list = minetest.get_objects_in_area(pos1, pos2)
+    for _,obj in pairs(obj_list) do
+        local hp = obj:get_hp()
+        local new_hp = math.max(0, hp - 10)
+        obj:set_hp(new_hp)
+        points_earned = points_earned + hp - new_hp
+
+    end
+
+    minetest.debug("i ate " .. points_earned)    
 end
 
 minetest.register_chatcommand("echo", {

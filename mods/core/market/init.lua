@@ -1,6 +1,6 @@
 commoditymarket.register_market("market", {
     description = "Market",
-    currency = {["default:dirt"] = 1},
+    currency = {["lh_items:alien_fragment"] = 1},
     inventory_limit = 1000,
     sell_limit = 100,
     initial_items = {"default:apple", "farming:bread",
@@ -11,6 +11,7 @@ commoditymarket.register_market("market", {
 
 minetest.register_node("market:market", {
     description = "Market",
+    tiles = {"market.png"},
     on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
         assert(clicker ~= nil)
         if not clicker:is_player() then

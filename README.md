@@ -43,7 +43,9 @@ https://content.minetest.net/packages/MeseCraft/mesecraft/
 
 
 https://content.minetest.net/packages/Wuzzy/hudbars/
-https://content.minetest.net/packages/TheAlchemist0033/alchemy/
+https://content.minetest.net/packages/TheAlchemist0033/alchemy/ potions and affects
 https://content.minetest.net/packages/davidthecreator/equippable_accessories/
 
-https://content.minetest.net/modnames/unified_inventory/
+https://content.minetest.net/modnames/unified_inventory/ is invetory i should use
+
+https://content.minetest.net/packages/cronvel/respawn/ to figure out how to respawn players

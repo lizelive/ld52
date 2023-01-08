@@ -46,7 +46,6 @@ for node_name, node in pairs(minetest.registered_nodes) do
         -- minetest.debug(node_name .. " is organic")
         local groups = shallow_copy(node.groups)
         groups["organic"]=1
-        minetest.debug(dump(groups))
         -- local groups = { organic=1}
         minetest.override_item(node.name, {groups=groups})
     end
@@ -109,7 +108,7 @@ local function absorb(user, pos)
     -- minetest.debug("absorb = " .. dump(pos_list))
 
 
-    points_earned = 0
+    local points_earned = 0
 
     for i=1, #pos_list do
         -- todo totally remove air blocks
@@ -126,12 +125,13 @@ local function absorb(user, pos)
         local hp = obj:get_hp()
         -- local new_hp = math.max(0, hp - 10)
         -- obj:set_hp(new_hp)
+        obj:punch(user, nil, absorb_tool_capabilities)
         local new_hp = obj:get_hp()
         local damge_done = hp - new_hp
         points_earned = points_earned + damge_done 
         -- obj:get_entity_name() 
         minetest.debug("i eat people " .. (obj:get_player_name() or obj:get_entity_name() or "other")  .. " and i did " ..  damge_done  )
-        obj:punch(user, nil, absorb_tool_capabilities)
+        
     end
 
     minetest.debug("i ate " .. points_earned)    
@@ -168,7 +168,6 @@ minetest.register_tool("mark_organics:eat_tool", {
     
     on_use = function(itemstack, user, pointed_thing)
         local pos = pointed_thing.under or user:get_pos()
-        -- minetest.debug(dump(user))
         if pos then
             absorb(user, pos)
         end

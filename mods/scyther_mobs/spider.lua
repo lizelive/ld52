@@ -54,7 +54,7 @@ local spider_types = {
 
 -- Spider by AspireMint (CC-BY-SA 3.0 license)
 
-mobs:register_mob("mobs_monster:spider", {
+mobs:register_mob("scyther_mobs:spider", {
 	--docile_by_day = true,
 	group_attack = true,
 	type = "monster",
@@ -127,7 +127,7 @@ mobs:register_mob("mobs_monster:spider", {
 
 				if tmp.shoot then
 					self.attack_type = "dogshoot"
-					self.arrow = "mobs_monster:cobweb"
+					self.arrow = "scyther_mobs:cobweb"
 					self.dogshoot_switch = 1
 					self.dogshoot_count_max = 60
 					self.dogshoot_count2_max = 20
@@ -227,7 +227,7 @@ if not mobs.custom_spawn_monster then
 
 	-- above ground spawn
 	mobs:spawn({
-		name = "mobs_monster:spider",
+		name = "scyther_mobs:spider",
 		nodes = {
 			"default:dirt_with_rainforest_litter", "default:snowblock",
 			"default:snow", "ethereal:crystal_dirt", "ethereal:cold_dirt"
@@ -242,7 +242,7 @@ if not mobs.custom_spawn_monster then
 
 	-- below ground spawn
 	mobs:spawn({
-		name = "mobs_monster:spider",
+		name = "scyther_mobs:spider",
 		nodes = {"default:stone_with_mese", "default:mese", "default:stone"},
 		min_light = 0,
 		max_light = 7,
@@ -254,11 +254,11 @@ if not mobs.custom_spawn_monster then
 end
 
 
-mobs:register_egg("mobs_monster:spider", S("Spider"), "mobs_cobweb.png", 1)
+mobs:register_egg("scyther_mobs:spider", S("Spider"), "mobs_cobweb.png", 1)
 
 
-mobs:alias_mob("mobs_monster:spider2", "mobs_monster:spider") -- compatibility
-mobs:alias_mob("mobs:spider", "mobs_monster:spider")
+mobs:alias_mob("scyther_mobs:spider2", "scyther_mobs:spider") -- compatibility
+mobs:alias_mob("mobs:spider", "scyther_mobs:spider")
 
 
 -- cobweb
@@ -303,7 +303,7 @@ local web_place = function(pos)
 	end
 end
 
-mobs:register_arrow("mobs_monster:cobweb", {
+mobs:register_arrow("scyther_mobs:cobweb", {
 	visual = "sprite",
 	visual_size = {x = 1, y = 1},
 	textures = {"mobs_cobweb.png"},

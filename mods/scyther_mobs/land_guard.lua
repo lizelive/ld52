@@ -31,7 +31,7 @@ local guard_types = {
 
 -- Land Guard
 
-mobs:register_mob("mobs_monster:land_guard", {
+mobs:register_mob("scyther_mobs:land_guard", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -111,7 +111,7 @@ mobs:register_mob("mobs_monster:land_guard", {
 
 if not mobs.custom_spawn_monster then
 mobs:spawn({
-	name = "mobs_monster:land_guard",
+	name = "scyther_mobs:land_guard",
 	nodes = {
 		"default:snow", "default:ice", "default:stone",
 		"default:dry_dirt_with_dry_grass", "ethereal:dry_dirt"
@@ -124,4 +124,4 @@ mobs:spawn({
 end
 
 
-mobs:register_egg("mobs_monster:land_guard", S("Land Guard"), "default_ice.png", 1)
+mobs:register_egg("scyther_mobs:land_guard", S("Land Guard"), "default_ice.png", 1)

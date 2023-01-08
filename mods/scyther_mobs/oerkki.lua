@@ -3,7 +3,7 @@ local S = mobs.intllib_monster
 
 -- Oerkki by PilzAdam
 
-mobs:register_mob("mobs_monster:oerkki", {
+mobs:register_mob("scyther_mobs:oerkki", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -63,7 +63,7 @@ mobs:register_mob("mobs_monster:oerkki", {
 if not mobs.custom_spawn_monster then
 
 	mobs:spawn({
-		name = "mobs_monster:oerkki",
+		name = "scyther_mobs:oerkki",
 		nodes = {"default:stone"},
 		max_light = 7,
 		chance = 7000,
@@ -72,7 +72,7 @@ if not mobs.custom_spawn_monster then
 end
 
 
-mobs:register_egg("mobs_monster:oerkki", S("Oerkki"), "default_obsidian.png", 1)
+mobs:register_egg("scyther_mobs:oerkki", S("Oerkki"), "default_obsidian.png", 1)
 
 
-mobs:alias_mob("mobs:oerkki", "mobs_monster:oerkki") -- compatiblity
+mobs:alias_mob("mobs:oerkki", "scyther_mobs:oerkki") -- compatiblity

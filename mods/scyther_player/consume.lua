@@ -60,14 +60,14 @@ local function absorb(player, pos)
     end
 
     local meta = player:get_meta()
-    local total_biomass = meta:get_int(scyther_scyther.keys.biomass)
+    local total_biomass = meta:get_int(scyther_player.keys.biomass)
     total_biomass = total_biomass + points_earned
-    meta:set_int(scyther_scyther.keys.biomass, total_biomass)
+    meta:set_int(scyther_player.keys.biomass, total_biomass)
     minetest.debug("i ate " .. points_earned .. " now have " .. total_biomass)
-    hb.change_hudbar(player, scyther_scyther.keys.biomass_bar, total_biomass)
+    hb.change_hudbar(player, scyther_player.keys.biomass_bar, total_biomass)
 end
 
-minetest.register_tool("scyther_scyther:consume", {
+minetest.register_tool("scyther_player:consume", {
     description = "Devour biomass",
     inventory_image = "eat_tool.png",
     tool_capabilities = {
@@ -100,7 +100,7 @@ minetest.register_tool("scyther_scyther:consume", {
 })
 
 hb.register_hudbar(
-    scyther_scyther.keys.biomass_bar,
+    scyther_player.keys.biomass_bar,
     '0xFFFFFF',
     S('harvest'),
     {
@@ -114,6 +114,6 @@ hb.register_hudbar(
 
 
 minetest.register_on_joinplayer(function(player)
-    hb.init_hudbar(player, scyther_scyther.keys.biomass_bar, 20, 20, false)
+    hb.init_hudbar(player, scyther_player.keys.biomass_bar, 20, 20, false)
   end)
   

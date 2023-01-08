@@ -1,4 +1,4 @@
-# Template for translations of mobs_monster mod
+# Template for translations of scyther_mobs mod
 # last update: 2016/June/10
 
 #dirtmonster.lua

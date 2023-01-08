@@ -14,7 +14,7 @@ local master_types = {
 
 -- Dungeon Master by PilzAdam
 
-mobs:register_mob("mobs_monster:dungeon_master", {
+mobs:register_mob("scyther_mobs:dungeon_master", {
 	type = "monster",
 	passive = false,
 	damage = 6,
@@ -24,7 +24,7 @@ mobs:register_mob("mobs_monster:dungeon_master", {
 	dogshoot_count2_max = 3, -- dogfight for 3 seconds
 	reach = 3,
 	shoot_interval = 2.2,
-	arrow = "mobs_monster:fireball",
+	arrow = "scyther_mobs:fireball",
 	shoot_offset = 1,
 	hp_min = 42,
 	hp_max = 75,
@@ -101,7 +101,7 @@ mobs:register_mob("mobs_monster:dungeon_master", {
 if not mobs.custom_spawn_monster then
 
 	mobs:spawn({
-		name = "mobs_monster:dungeon_master",
+		name = "scyther_mobs:dungeon_master",
 		nodes = {"default:stone", "nether:rack", "nether:rack_deep"},
 		max_light = 5,
 		chance = 9000,
@@ -111,14 +111,14 @@ if not mobs.custom_spawn_monster then
 end
 
 
-mobs:register_egg("mobs_monster:dungeon_master", S("Dungeon Master"), "fire_basic_flame.png", 1, true)
+mobs:register_egg("scyther_mobs:dungeon_master", S("Dungeon Master"), "fire_basic_flame.png", 1, true)
 
 
-mobs:alias_mob("mobs:dungeon_master", "mobs_monster:dungeon_master") -- compatibility
+mobs:alias_mob("mobs:dungeon_master", "scyther_mobs:dungeon_master") -- compatibility
 
 
 -- fireball (weapon)
-mobs:register_arrow("mobs_monster:fireball", {
+mobs:register_arrow("scyther_mobs:fireball", {
 	visual = "sprite",
 	visual_size = {x = 1, y = 1},
 	textures = {"mobs_fireball.png"},

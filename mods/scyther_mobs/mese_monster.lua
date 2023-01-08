@@ -134,7 +134,7 @@ local mese_monster_types = {
 
 
 -- Mese Monster by SirrobZeroone
-mobs:register_mob("mobs_monster:mese_monster", {
+mobs:register_mob("scyther_mobs:mese_monster", {
 	type = "monster",
 	visual_size = {x = 10, y = 10},  -- Got scale wrong in blender by factor of 10 - S01
 	passive = false,
@@ -142,7 +142,7 @@ mobs:register_mob("mobs_monster:mese_monster", {
 	damage = 4,
 	reach = 4,
 	shoot_interval = 0.5,
-	arrow = "mobs_monster:mese_arrow",
+	arrow = "scyther_mobs:mese_arrow",
 	shoot_offset = 0.75,
 --	arrow_override = function(self)
 --		self.velocity = 20
@@ -250,7 +250,7 @@ mobs:register_mob("mobs_monster:mese_monster", {
 		for i, obj in ipairs(objects) do
 
 			if minetest.is_player(obj)
-			and obj:get_wielded_item():get_name() == "mobs_monster:mese_monster" then
+			and obj:get_wielded_item():get_name() == "scyther_mobs:mese_monster" then
 
 				local degree = (360 + math.deg(obj:get_look_horizontal())) % 360
 				local compass_sel
@@ -278,17 +278,17 @@ mobs:register_mob("mobs_monster:mese_monster", {
 
 
 -- mese arrow (weapon)
-minetest.register_craftitem("mobs_monster:mese_crystal_fragment_arrow", {
+minetest.register_craftitem("scyther_mobs:mese_crystal_fragment_arrow", {
 	description = S("Mese Monster Arrow"),
 	inventory_image = "mobs_mese_arrow.png",
 	groups = {not_in_creative_inventory = 1}
 })
 
 
-mobs:register_arrow("mobs_monster:mese_arrow", {
+mobs:register_arrow("scyther_mobs:mese_arrow", {
 	visual = "wielditem",
 	visual_size = {x = 0.25, y = 0.25},
-	textures = {"mobs_monster:mese_crystal_fragment_arrow"},
+	textures = {"scyther_mobs:mese_crystal_fragment_arrow"},
 	velocity = 8,
 	rotate = 180,
 	damage = 2,
@@ -315,7 +315,7 @@ mobs:register_arrow("mobs_monster:mese_arrow", {
 if not mobs.custom_spawn_monster then
 
 	mobs:spawn({
-		name = "mobs_monster:mese_monster",
+		name = "scyther_mobs:mese_monster",
 		nodes = {"default:stone"},
 		max_light = 7,
 		chance = 5000,
@@ -325,10 +325,10 @@ if not mobs.custom_spawn_monster then
 end
 
 
-mobs:register_egg("mobs_monster:mese_monster", S("Mese Monster"), "default_mese_block.png", 1)
+mobs:register_egg("scyther_mobs:mese_monster", S("Mese Monster"), "default_mese_block.png", 1)
 
 
-mobs:alias_mob("mobs:mese_monster", "mobs_monster:mese_monster") -- compatiblity
+mobs:alias_mob("mobs:mese_monster", "scyther_mobs:mese_monster") -- compatiblity
 
 
 -- 9x mese crystal fragments = 1x mese crystal

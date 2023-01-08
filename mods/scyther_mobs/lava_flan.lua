@@ -3,7 +3,7 @@ local S = mobs.intllib_monster
 
 -- Lava Flan by Zeg9 (additional textures by JurajVajda)
 
-mobs:register_mob("mobs_monster:lava_flan", {
+mobs:register_mob("scyther_mobs:lava_flan", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -73,7 +73,7 @@ mobs:register_mob("mobs_monster:lava_flan", {
 			self.object:remove()
 
 			if math.random(4) == 1 then
-				mobs:add_mob(pos, {name = "mobs_monster:obsidian_flan"})
+				mobs:add_mob(pos, {name = "scyther_mobs:obsidian_flan"})
 			end
 		else
 			mobs:effect(pos, 40, "fire_basic_flame.png", 2, 3, 2, 5, 10, nil)
@@ -99,7 +99,7 @@ mobs:register_mob("mobs_monster:lava_flan", {
 
 if not mobs.custom_spawn_monster then
 mobs:spawn({
-	name = "mobs_monster:lava_flan",
+	name = "scyther_mobs:lava_flan",
 	nodes = {"default:lava_source"},
 	chance = 1500,
 	active_object_count = 1,
@@ -109,11 +109,11 @@ end
 
 
 -- add spawn egg
-mobs:register_egg("mobs_monster:lava_flan", S("Lava Flan"), "default_lava.png", 1)
+mobs:register_egg("scyther_mobs:lava_flan", S("Lava Flan"), "default_lava.png", 1)
 
 
 -- compatibility alias, only needed for servers who used the old mobs mod
-mobs:alias_mob("mobs:lava_flan", "mobs_monster:lava_flan")
+mobs:alias_mob("mobs:lava_flan", "scyther_mobs:lava_flan")
 
 
 -- lava orb
@@ -222,13 +222,13 @@ end
 
 -- obsidian flan
 
-mobs:register_mob("mobs_monster:obsidian_flan", {
+mobs:register_mob("scyther_mobs:obsidian_flan", {
 	type = "monster",
 	passive = false,
 	attack_type = "shoot",
 	shoot_interval = 0.5,
 	shoot_offset = 1.0,
-	arrow = "mobs_monster:obsidian_arrow",
+	arrow = "scyther_mobs:obsidian_arrow",
 	reach = 2,
 	damage = 3,
 	hp_min = 10,
@@ -275,14 +275,14 @@ mobs:register_mob("mobs_monster:obsidian_flan", {
 
 
 -- add spawn egg
-mobs:register_egg("mobs_monster:obsidian_flan", S("Obsidian Flan"),
+mobs:register_egg("scyther_mobs:obsidian_flan", S("Obsidian Flan"),
 		"default_obsidian.png", 1)
 
 
 local mobs_griefing = minetest.settings:get_bool("mobs_griefing") ~= false
 
 -- mese arrow (weapon)
-mobs:register_arrow("mobs_monster:obsidian_arrow", {
+mobs:register_arrow("scyther_mobs:obsidian_arrow", {
 	visual = "sprite",
 	visual_size = {x = 0.5, y = 0.5},
 	textures = {"default_obsidian_shard.png"},

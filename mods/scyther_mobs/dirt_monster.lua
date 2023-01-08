@@ -14,7 +14,7 @@ local dirt_types = {
 
 -- Dirt Monster by PilzAdam
 
-mobs:register_mob("mobs_monster:dirt_monster", {
+mobs:register_mob("scyther_mobs:dirt_monster", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -91,7 +91,7 @@ mobs:register_mob("mobs_monster:dirt_monster", {
 if not mobs.custom_spawn_monster then
 
 	mobs:spawn({
-		name = "mobs_monster:dirt_monster",
+		name = "scyther_mobs:dirt_monster",
 		nodes = {"default:dirt_with_grass", "ethereal:gray_dirt", "ethereal:dry_dirt"},
 		min_light = 0,
 		max_light = 7,
@@ -103,7 +103,7 @@ if not mobs.custom_spawn_monster then
 end
 
 
-mobs:register_egg("mobs_monster:dirt_monster", S("Dirt Monster"), "default_dirt.png", 1)
+mobs:register_egg("scyther_mobs:dirt_monster", S("Dirt Monster"), "default_dirt.png", 1)
 
 
-mobs:alias_mob("mobs:dirt_monster", "mobs_monster:dirt_monster") -- compatibility
+mobs:alias_mob("mobs:dirt_monster", "scyther_mobs:dirt_monster") -- compatibility

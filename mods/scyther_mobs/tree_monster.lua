@@ -47,7 +47,7 @@ local tree_types = {
 
 -- Tree Monster (or Tree Gollum) by PilzAdam
 
-mobs:register_mob("mobs_monster:tree_monster", {
+mobs:register_mob("scyther_mobs:tree_monster", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -160,7 +160,7 @@ mobs:register_mob("mobs_monster:tree_monster", {
 if not mobs.custom_spawn_monster then
 
 	mobs:spawn({
-		name = "mobs_monster:tree_monster",
+		name = "scyther_mobs:tree_monster",
 		nodes = {"group:leaves"},
 		max_light = 7,
 		chance = 7000,
@@ -170,7 +170,7 @@ if not mobs.custom_spawn_monster then
 end
 
 
-mobs:register_egg("mobs_monster:tree_monster", S("Tree Monster"), "default_tree_top.png", 1)
+mobs:register_egg("scyther_mobs:tree_monster", S("Tree Monster"), "default_tree_top.png", 1)
 
 
-mobs:alias_mob("mobs:tree_monster", "mobs_monster:tree_monster") -- compatibility
+mobs:alias_mob("mobs:tree_monster", "scyther_mobs:tree_monster") -- compatibility

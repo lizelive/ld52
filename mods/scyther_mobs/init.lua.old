@@ -1,0 +1,11 @@
+local S = default.get_translator
+
+mobs:alias_mob("scyther_mobs:tank", "scyther_mobs:dungeon_master")
+mobs:alias_mob("scyther_mobs:spore", "scyther_mobs:tree_monster")
+
+
+mobs:register_egg("scyther_mobs:tank", S("Tank"), "fire_basic_flame.png", 2, false)
+mobs:register_egg("scyther_mobs:spore", S("Spore"), "flowers_mushroom_red.png", 2, false)
+
+-- /grantme all
+-- /giveme scyther_mobs:spore

@@ -31,7 +31,7 @@ end
 
 -- Sand Monster by PilzAdam
 
-mobs:register_mob("mobs_monster:sand_monster", {
+mobs:register_mob("scyther_mobs:sand_monster", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -119,7 +119,7 @@ mobs:register_mob("mobs_monster:sand_monster", {
 if not mobs.custom_spawn_monster then
 
 	mobs:spawn({
-		name = "mobs_monster:sand_monster",
+		name = "scyther_mobs:sand_monster",
 		nodes = {"default:desert_sand"},
 		chance = 7000,
 		active_object_count = 2,
@@ -128,8 +128,8 @@ if not mobs.custom_spawn_monster then
 end
 
 
-mobs:register_egg("mobs_monster:sand_monster", S("Sand Monster"),
+mobs:register_egg("scyther_mobs:sand_monster", S("Sand Monster"),
 		"default_desert_sand.png", 1)
 
 
-mobs:alias_mob("mobs:sand_monster", "mobs_monster:sand_monster") -- compatibility
+mobs:alias_mob("mobs:sand_monster", "scyther_mobs:sand_monster") -- compatibility

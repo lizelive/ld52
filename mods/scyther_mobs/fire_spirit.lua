@@ -13,7 +13,7 @@ end
 
 -- Fire Spirit
 
-mobs:register_mob("mobs_monster:fire_spirit", {
+mobs:register_mob("scyther_mobs:fire_spirit", {
 	type = "monster",
 	passive = false,
 	attack_type = "dogfight",
@@ -84,7 +84,7 @@ mobs:register_mob("mobs_monster:fire_spirit", {
 if not mobs.custom_spawn_monster then
 
 	mobs:spawn({
-		name = "mobs_monster:fire_spirit",
+		name = "scyther_mobs:fire_spirit",
 		nodes = {"default:obsidian", "caverealms:hot_cobble"},
 		neighbors = {"group:fire"},
 		min_light = 12,
@@ -96,4 +96,4 @@ if not mobs.custom_spawn_monster then
 end
 
 
-mobs:register_egg("mobs_monster:fire_spirit", S("Fire Spirit"), "fire_basic_flame.png", 1)
+mobs:register_egg("scyther_mobs:fire_spirit", S("Fire Spirit"), "fire_basic_flame.png", 1)

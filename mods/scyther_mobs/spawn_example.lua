@@ -61,7 +61,7 @@ mobs:spawn({
 -- Dirt Monster
 
 mobs:spawn({
-	name = "mobs_monster:dirt_monster",
+	name = "scyther_mobs:dirt_monster",
 	nodes = {"default:dirt_with_grass"},
 	min_light = 0,
 	max_light = 7,
@@ -74,7 +74,7 @@ mobs:spawn({
 -- Dungeon Master
 
 mobs:spawn({
-	name = "mobs_monster:dungeon_master",
+	name = "scyther_mobs:dungeon_master",
 	nodes = {"default:stone"},
 	max_light = 5,
 	chance = 9000,
@@ -85,7 +85,7 @@ mobs:spawn({
 -- Lava Flan
 
 mobs:spawn({
-	name = "mobs_monster:lava_flan",
+	name = "scyther_mobs:lava_flan",
 	nodes = {"default:lava_source"},
 	chance = 1500,
 	active_object_count = 1,
@@ -95,7 +95,7 @@ mobs:spawn({
 -- Mese Monster
 
 mobs:spawn({
-	name = "mobs_monster:mese_monster",
+	name = "scyther_mobs:mese_monster",
 	nodes = {"default:stone"},
 	max_light = 7,
 	chance = 5000,
@@ -106,7 +106,7 @@ mobs:spawn({
 -- Oerkki
 
 mobs:spawn({
-	name = "mobs_monster:oerkki",
+	name = "scyther_mobs:oerkki",
 	nodes = {"default:stone"},
 	max_light = 7,
 	chance = 7000,
@@ -116,7 +116,7 @@ mobs:spawn({
 -- Sand Monster
 
 mobs:spawn({
-	name = "mobs_monster:sand_monster",
+	name = "scyther_mobs:sand_monster",
 	nodes = {"default:desert_sand"},
 	chance = 7000,
 	active_object_count = 2,
@@ -126,7 +126,7 @@ mobs:spawn({
 -- Spider (above ground)
 
 mobs:spawn({
-	name = "mobs_monster:spider",
+	name = "scyther_mobs:spider",
 	nodes = {
 		"default:dirt_with_rainforest_litter", "default:snowblock",
 		"default:snow", "ethereal:crystal_dirt", "ethereal:cold_dirt"
@@ -141,7 +141,7 @@ mobs:spawn({
 
 -- Spider (below ground)
 mobs:spawn({
-	name = "mobs_monster:spider",
+	name = "scyther_mobs:spider",
 	nodes = {"default:stone_with_mese", "default:mese", "default:stone"},
 	min_light = 0,
 	max_light = 7,
@@ -154,7 +154,7 @@ mobs:spawn({
 -- Stone Monster
 
 mobs:spawn({
-	name = "mobs_monster:stone_monster",
+	name = "scyther_mobs:stone_monster",
 	nodes = {"default:stone", "default:desert_stone", "default:sandstone"},
 	max_light = 7,
 	chance = 7000,
@@ -164,7 +164,7 @@ mobs:spawn({
 -- Tree Monster
 
 mobs:spawn({
-	name = "mobs_monster:tree_monster",
+	name = "scyther_mobs:tree_monster",
 	nodes = {"default:leaves", "default:jungleleaves"},
 	max_light = 7,
 	chance = 7000,

@@ -1,4 +1,4 @@
-# Malay translations of mobs_monster mod
+# Malay translations of scyther_mobs mod
 # using template from 2016/June/10, translated on 2018/February/05
 
 #dirtmonster.lua

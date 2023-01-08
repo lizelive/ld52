@@ -146,6 +146,7 @@ local function register_node_with_alien_grass(name, base)
 				tileable_vertical = false}},
 		groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1, hive = 1},
 		drop = "default:dirt",
+		damage_per_second = 4 * 2,
 		sounds = default.node_sound_dirt_defaults({
 			footstep = {name = "default_grass_footstep", gain = 0.25},
 		}),

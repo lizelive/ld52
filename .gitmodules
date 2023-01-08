@@ -19,3 +19,15 @@
 [submodule "mods/content/3d_armor"]
 	path = mods/content/3d_armor
 	url = https://github.com/minetest-mods/3d_armor.git
+[submodule "mods/content/minetest_hudbars"]
+	path = mods/content/minetest_hudbars
+	url = https://codeberg.org/Wuzzy/minetest_hudbars.git
+[submodule "mods/content/player_monoids"]
+	path = mods/content/player_monoids
+	url = https://github.com/minetest-mods/player_monoids.git
+[submodule "mods/content/hbsprint"]
+	path = mods/content/hbsprint
+	url = https://github.com/minetest-mods/hbsprint.git
+[submodule "mods/content/minetest_hbhunger"]
+	path = mods/content/minetest_hbhunger
+	url = https://codeberg.org/Wuzzy/minetest_hbhunger.git

@@ -20,8 +20,11 @@ for node_name, node in pairs(minetest.registered_nodes) do
             break
         end
     end
+    if node.groups["hive"] == 1 then
+        is_organic = false
+    end
     if is_organic then
-        minetest.debug(node_name .. " is organic")
+        -- minetest.debug(node_name .. " is organic")
         local groups = { unpack(node.groups), organic=1}
         -- local groups = { organic=1}
         minetest.override_item(node.name, {groups=groups})
@@ -29,11 +32,11 @@ for node_name, node in pairs(minetest.registered_nodes) do
 end
 
 
--- for node_name, node in pairs(minetest.registered_nodes) do
---     if node.groups["organic"] then
---         minetest.debug("i ate " .. node_name .. " and its " .. dump(node))
---     end
--- end
+for node_name, node in pairs(minetest.registered_nodes) do
+    if node.groups["organic"] then
+        minetest.debug("i ate " .. node_name .. " and its " .. dump(node))
+    end
+end
 
 local function grass_to_dirt(pos1, pos2)
     local c_dirt  = minetest.get_content_id("default:dirt")
@@ -88,6 +91,7 @@ local function absorb(user, pos)
     points_earned = 0
 
     for i=1, #pos_list do
+        -- todo totally remove air blocks
         minetest.swap_node(pos_list[i], { name = "alien_blocks:dirt_with_alien_grass" })
         points_earned = points_earned  + 1
     end
@@ -96,7 +100,6 @@ local function absorb(user, pos)
     local obj_list = minetest.get_objects_in_area(pos1, pos2)
     for _,obj in pairs(obj_list) do
         if obj == user then
-            minetest.debug("dont eat self")
             break
         end
         local hp = obj:get_hp()

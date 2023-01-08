@@ -16,3 +16,6 @@
 [submodule "mods/content/hunger_ng"]
 	path = mods/content/hunger_ng
 	url = https://gitlab.com/4w/hunger_ng.git
+[submodule "mods/commoditymarket"]
+	path = mods/commoditymarket
+	url = https://github.com/minetest-mods/commoditymarket

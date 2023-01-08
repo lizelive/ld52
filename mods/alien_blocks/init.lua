@@ -146,7 +146,6 @@ local function register_node_with_alien_grass(name, base)
 				tileable_vertical = false}},
 		groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1, hive = 1},
 		drop = "default:dirt",
-		damage_per_second = 4 * 2,
 		sounds = default.node_sound_dirt_defaults({
 			footstep = {name = "default_grass_footstep", gain = 0.25},
 		}),
@@ -215,5 +214,5 @@ add_simple_flower(
 	"alien_egg",
 	S("alien egg"),
 	{-2 / 16, -0.5, -2 / 16, 2 / 16, 5 / 16, 2 / 16},
-	{color_red = 1, flammable = 1}
+	{color_red = 1, flammable = 1, damage_per_second = 4 * 2,}
 )

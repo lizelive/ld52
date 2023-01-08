@@ -4,21 +4,6 @@
 [submodule "mods/core/mobs_redo"]
 	path = mods/core/mobs_redo
 	url = https://notabug.org/tenplus1/mobs_redo.git
-[submodule "mods/content/animalia"]
-	path = mods/content/animalia
-	url = https://github.com/ElCeejo/animalia.git
-[submodule "mods/content/creatura"]
-	path = mods/content/creatura
-	url = https://github.com/ElCeejo/creatura.git
-[submodule "mods/content/mobs_monster"]
-	path = mods/content/mobs_monster
-	url = https://notabug.org/TenPlus1/mobs_monster.git
-[submodule "mods/content/minetest-toolranks"]
-	path = mods/content/minetest-toolranks
-	url = https://github.com/lisacvuk/minetest-toolranks.git
-[submodule "mods/content/3d_armor"]
-	path = mods/content/3d_armor
-	url = https://github.com/minetest-mods/3d_armor.git
 [submodule "mods/content/minetest_hudbars"]
 	path = mods/content/minetest_hudbars
 	url = https://codeberg.org/Wuzzy/minetest_hudbars.git

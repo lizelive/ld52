@@ -214,5 +214,5 @@ add_simple_flower(
 	"alien_egg",
 	S("alien egg"),
 	{-2 / 16, -0.5, -2 / 16, 2 / 16, 5 / 16, 2 / 16},
-	{color_red = 1, flammable = 1}
+	{color_red = 1, flammable = 1, damage_per_second = 4 * 2,}
 )

@@ -17,9 +17,7 @@ local absorb_tool_capabilities = {
 
 -- map what
 local consume_map = {
-    ["default:dirt_with_grass"] = {
-        name = "lh_blocks:consumed_dirt_with_grass"
-    },
+    ["default:dirt_with_grass"] = {name = "lh_blocks:consumed_dirt_with_grass"},
     ["group:flora"] = {name = "lh_blocks:consumed_flora"}
 }
 

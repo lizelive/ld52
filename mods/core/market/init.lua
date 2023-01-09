@@ -11,7 +11,7 @@ commoditymarket.register_market("market", {
 
 minetest.register_node("market:market", {
     description = "Market",
-    tiles = {"market.png"},
+    tiles = {"market_vertical.png", "market_vertical.png", "market.png"},
     on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
         assert(clicker ~= nil)
         if not clicker:is_player() then

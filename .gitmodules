@@ -22,9 +22,9 @@
 [submodule "mods/content/i3"]
 	path = mods/content/i3
 	url = https://github.com/minetest-mods/i3.git
-[submodule "mods/content/3d_armor"]
-	path = mods/content/3d_armor
-	url = https://github.com/minetest-mods/3d_armor.git
+# [submodule "mods/content/3d_armor"]
+# 	path = mods/content/3d_armor
+# 	url = https://github.com/minetest-mods/3d_armor.git
 [submodule "mods/content/minetest-entity_modifier"]
 	path = mods/content/minetest-entity_modifier
 	url = https://github.com/j8r/minetest-entity_modifier.git

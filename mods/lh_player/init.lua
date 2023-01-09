@@ -8,3 +8,4 @@ lh_player = {
 }
 
 dofile(path .. "/consume.lua")
+dofile(path .. "/class.lua")

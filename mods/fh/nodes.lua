@@ -47,7 +47,7 @@ local mod_def = minetest.get_modpath("default")
 
 minetest.register_node("fh:biomass", {
 	description = "biomass",
-	tiles = {"fleshy_block.png"},
+	tiles = {"biomass.png"},
 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 0, hive = 1},
 	sounds = mod_def and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
@@ -116,7 +116,7 @@ my_register_stair_and_slab(
 	"biomass",
 	"fh:biomass",
 	{cracky = 1, level = 2, hive = 1},
-	{"fleshy_block.png"},
+	{"biomass.png"},
 	"Biomass Stair",
 	"Biomass Slab",
 	default.node_sound_metal_defaults(),
@@ -175,7 +175,7 @@ local function add_simple_flower(name, desc, box, f_groups)
 	f_groups.snappy = 3
 	f_groups.flower = 1
 	f_groups.flora = 1
-	f_groups.attached_node = 1
+	f_groups.attached_node = f_groups.attached_node or 1
 	f_groups.hive = 1
 
 	minetest.register_node("fh:" .. name, {
@@ -208,7 +208,7 @@ add_simple_flower(
 	"vine_drill",
 	S("vine drill"),
 	{-2 / 16, -0.5, -2 / 16, 2 / 16, 5 / 16, 2 / 16},
-	{color_red = 1, flammable = 1, hive =1}
+	{color_red = 1, flammable = 1, hive =1, attached_node = 4}
 )
 
 add_simple_flower(

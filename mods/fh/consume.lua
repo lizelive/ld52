@@ -60,7 +60,7 @@ local function absorb(player, pos)
     local total_biomass = meta:get_int(fh.keys.biomass)
     total_biomass = total_biomass + points_earned
     meta:set_int(fh.keys.biomass, total_biomass)
-    minetest.debug("i ate " .. points_earned .. " now have " .. total_biomass)
+    -- minetest.debug("i ate " .. points_earned .. " now have " .. total_biomass)
 end
 
 minetest.register_tool("fh:consume", {

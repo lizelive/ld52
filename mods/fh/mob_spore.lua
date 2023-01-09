@@ -22,20 +22,20 @@ mobs:register_mob("fh:spore", {
 	textures = {
 		{"mobs_spore.png"},
 	},
-	blood_texture = "blood_particle.png",
+	blood_texture = "spore.png",
 	makes_footstep_sound = true,
 	sounds = {
 		random = "mobs_treemonster"
 	},
 	walk_velocity = 1,
 	run_velocity = 3,
+    replace_what = {"group:organic"},
+    replace_with = "fh:dirt_with_alien_grass",
 	jump = true,
 	view_range = 15,
 	drops = {
-		{name = "default:stick", chance = 1, min = 0, max = 2},
-		{name = "default:sapling", chance = 2, min = 0, max = 2},
-		{name = "default:junglesapling", chance = 3, min = 0, max = 2},
-		{name = "default:apple", chance = 4, min = 1, max = 2}
+		{name = "fh:fragment", chance = 1, min = 0, max = 4},
+		{name = "fh:biomass", chance = 2, min = 0, max = 2},
 	},
 	water_damage = 0,
 	lava_damage = 0,
@@ -86,5 +86,5 @@ if not mobs.custom_spawn_monster then
 end
 
 
-mobs:register_egg("fh:spore", S("Spore"), "spore.png", 1)
+mobs:register_egg("fh:spore", S("Spore"), "spore.png", false)
 

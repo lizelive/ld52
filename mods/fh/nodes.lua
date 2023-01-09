@@ -2,53 +2,53 @@ local S = default.get_translator
 
 local mod_def = minetest.get_modpath("default")
 
-minetest.register_node("fh:flesh_raw", {
-	description = "Fresh Flesh Block",
-	tiles = {"alien_flesh_raw_top.png", "alien_flesh_raw_bottom.png", "alien_flesh_raw_side.png"},
-	paramtype2 = "facedir",
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = mod_def and default.node_sound_leaves_defaults(),
-	on_place = minetest.rotate_node,
-	on_use = minetest.item_eat(20)
-})
+-- minetest.register_node("fh:flesh_raw", {
+-- 	description = "Fresh Flesh Block",
+-- 	tiles = {"alien_flesh_raw_top.png", "alien_flesh_raw_bottom.png", "alien_flesh_raw_side.png"},
+-- 	paramtype2 = "facedir",
+-- 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
+-- 	sounds = mod_def and default.node_sound_leaves_defaults(),
+-- 	on_place = minetest.rotate_node,
+-- 	on_use = minetest.item_eat(20)
+-- })
 
-minetest.register_node("fh:flesh", {
-	description = "Flesh Block",
-	tiles = {"alien_flesh_top.png", "alien_flesh_bottom.png", "alien_flesh_side.png"},
-	paramtype2 = "facedir",
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = mod_def and default.node_sound_leaves_defaults(),
-	on_place = minetest.rotate_node,
-	on_use = minetest.item_eat(20)
-})
+-- minetest.register_node("fh:flesh", {
+-- 	description = "Flesh Block",
+-- 	tiles = {"alien_flesh_top.png", "alien_flesh_bottom.png", "alien_flesh_side.png"},
+-- 	paramtype2 = "facedir",
+-- 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
+-- 	sounds = mod_def and default.node_sound_leaves_defaults(),
+-- 	on_place = minetest.rotate_node,
+-- 	on_use = minetest.item_eat(20)
+-- })
 
-minetest.register_node("fh:meatblock_raw", {
-	description = "Raw Meat Block",
-	tiles = {"mobs_meat_raw_top.png", "mobs_meat_raw_bottom.png", "mobs_meat_raw_side.png"},
-	paramtype2 = "facedir",
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = mod_def and default.node_sound_leaves_defaults(),
-	on_place = minetest.rotate_node,
-	on_use = minetest.item_eat(20)
-})
+-- minetest.register_node("fh:meatblock_raw", {
+-- 	description = "Raw Meat Block",
+-- 	tiles = {"mobs_meat_raw_top.png", "mobs_meat_raw_bottom.png", "mobs_meat_raw_side.png"},
+-- 	paramtype2 = "facedir",
+-- 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
+-- 	sounds = mod_def and default.node_sound_leaves_defaults(),
+-- 	on_place = minetest.rotate_node,
+-- 	on_use = minetest.item_eat(20)
+-- })
 
-minetest.register_node("fh:meatblock", {
-	description = "Meat Block",
-	tiles = {"mobs_meat_top.png", "mobs_meat_bottom.png", "mobs_meat_side.png"},
-	paramtype2 = "facedir",
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = mod_def and default.node_sound_leaves_defaults(),
-	on_place = minetest.rotate_node,
-	on_use = minetest.item_eat(20)
-})
-
-
+-- minetest.register_node("fh:meatblock", {
+-- 	description = "Meat Block",
+-- 	tiles = {"mobs_meat_top.png", "mobs_meat_bottom.png", "mobs_meat_side.png"},
+-- 	paramtype2 = "facedir",
+-- 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
+-- 	sounds = mod_def and default.node_sound_leaves_defaults(),
+-- 	on_place = minetest.rotate_node,
+-- 	on_use = minetest.item_eat(20)
+-- })
 
 
-minetest.register_node("fh:fleshy_block", {
-	description = "Meat Block",
+
+
+minetest.register_node("fh:biomass", {
+	description = "biomass",
 	tiles = {"fleshy_block.png"},
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 0, hive = 1},
 	sounds = mod_def and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
 	on_use = minetest.item_eat(20)
@@ -56,9 +56,9 @@ minetest.register_node("fh:fleshy_block", {
 
 
 minetest.register_node("fh:tendril", {
-	description = "Meat Block",
+	description = "tendril",
 	tiles = {"tendril_top.png", "tendril_top.png", "tendril.png"},
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
+	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 0, hive = 1},
 	sounds = mod_def and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
 	paramtype2 = "facedir",
@@ -66,16 +66,16 @@ minetest.register_node("fh:tendril", {
 })
 
 
-minetest.register_node("fh:alienmetalblock", {
-	description = "alien metal block",
-	tiles = {"alien_metal_block.png"},
-	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
-	sounds = default.node_sound_metal_defaults(),
-})
+-- minetest.register_node("fh:alienmetalblock", {
+-- 	description = "alien metal block",
+-- 	tiles = {"alien_metal_block.png"},
+-- 	is_ground_content = false,
+-- 	groups = {cracky = 1, level = 2},
+-- 	sounds = default.node_sound_metal_defaults(),
+-- })
 
-minetest.register_node("fh:alienmetal", {
-	description = "alien metal",
+minetest.register_node("fh:chiten", {
+	description = "chiten",
 	tiles = {"alien_metal.png"},
 	is_ground_content = false,
 	groups = {cracky = 1, level = 2},
@@ -89,7 +89,7 @@ minetest.register_node("fh:alien_metal_with_vine_drill", {
 	paramtype2 = "facedir",
 	on_place = minetest.rotate_node,
 	groups = {cracky = 1, level = 2},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = default.node_sound_leaves_defaults(),
 })
 
 minetest.register_node("fh:alien_metal_with_climby_eye_vine", {
@@ -97,7 +97,7 @@ minetest.register_node("fh:alien_metal_with_climby_eye_vine", {
 	tiles = {"alien_metal.png", "alien_metal.png", "alien_metal.png^climby_eye_vine.png"},
 	is_ground_content = false,
 	groups = {cracky = 1, level = 2},
-	sounds = default.node_sound_metal_defaults(),
+	sounds = default.node_sound_leaves_defaults(),
 })
 
 local function my_register_stair_and_slab(subname, recipeitem, groups, images,
@@ -113,23 +113,23 @@ stairs.register_slab(subname, recipeitem, groups, images, (desc_slab),
 end
 
 my_register_stair_and_slab(
-	"alienmetalblock",
-	"fh:alienmetalblock",
-	{cracky = 1, level = 2},
-	{"alien_metal_block.png"},
-	"alien metal Stair",
-	"alien metal Slab",
+	"biomass",
+	"fh:biomass",
+	{cracky = 1, level = 2, hive = 1},
+	{"fleshy_block.png"},
+	"Biomass Stair",
+	"Biomass Slab",
 	default.node_sound_metal_defaults(),
 	true
 )
 
 my_register_stair_and_slab(
-	"alienmetal",
-	"fh:alienmetal",
+	"chiten",
+	"fh:chiten",
 	{cracky = 1, level = 2},
 	{"alien_metal.png"},
-	"alien metal Stair",
-	"alien metal Slab",
+	"chiten Stair",
+	"chiten Slab",
 	default.node_sound_metal_defaults(),
 	true
 )

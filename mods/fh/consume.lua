@@ -57,14 +57,14 @@ local function absorb(player, pos)
     end
 
     local meta = player:get_meta()
-    local total_biomass = meta:get_int(lh_player.keys.biomass)
+    local total_biomass = meta:get_int(fh.keys.biomass)
     total_biomass = total_biomass + points_earned
-    meta:set_int(lh_player.keys.biomass, total_biomass)
+    meta:set_int(fh.keys.biomass, total_biomass)
     minetest.debug("i ate " .. points_earned .. " now have " .. total_biomass)
-    hb.change_hudbar(player, lh_player.keys.biomass_bar, total_biomass)
+    hb.change_hudbar(player, fh.keys.biomass_bar, total_biomass)
 end
 
-minetest.register_tool("lh_player:consume", {
+minetest.register_tool("fh:consume", {
     description = "Devour biomass",
     inventory_image = "eat_tool.png",
     tool_capabilities = {

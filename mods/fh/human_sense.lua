@@ -33,8 +33,8 @@ local function get_is_day()
     return (time_of_day > half_night_size) and (time_of_day < (1-half_night_size))
 end
 
-function lh_player.fix_player_nametag(player)
-    local should_have_nametag = lh_player.class_is_survivor(player) ~= get_is_day()
+function fh.fix_player_nametag(player)
+    local should_have_nametag = fh.class_is_survivor(player) ~= get_is_day()
     if should_have_nametag then
         show_nametag(player)
     else
@@ -42,7 +42,7 @@ function lh_player.fix_player_nametag(player)
     end
 end
 
-function lh_player.step(dtime)
+function fh.step(dtime)
     local time_of_day = minetest.get_timeofday()
     
     local is_day =  get_is_day()
@@ -55,7 +55,7 @@ function lh_player.step(dtime)
         end
         local players = minetest.get_connected_players()
         for _, player in ipairs(players) do
-            lh_player.fix_player_nametag(player)
+            fh.fix_player_nametag(player)
     end
     end
 
@@ -75,7 +75,7 @@ function lh_player.step(dtime)
     --     all_saved_huds[player_name] = {}
     --     -- clear players huds
 
-    --     if lh_player.class_is_survivor(player) then
+    --     if fh.class_is_survivor(player) then
     --         table.insert(survivors, player)
     --     else
     --         table.insert(scythers, player)

@@ -5,13 +5,8 @@ local S = default.get_translator
 local target_absorb_from_mob = 10
 
 local organic_groups = {
-    "fleshy", "meat", "eatable", "flora", "grass", "leaves", "spreading_dirt_type"
+    "fleshy", "meat", "eatable", "flora", "grass", "leaves", "soil"
 }
-
-
-
-
-local organic_nodes = {"default:papyrus", "default:junglegrass"}
 
 -- local function shallowCopy(original)
 --     local copy = {}

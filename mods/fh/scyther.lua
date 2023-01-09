@@ -2,10 +2,10 @@ local modname = minetest.get_current_modname()
 local path = minetest.get_modpath(modname)
 local S = default.get_translator
 
-function lh_player.update_scyther(player, dtime)
+function fh.update_scyther(player, dtime)
     local player_name = player:get_player_name()
     local meta = player:get_meta()
-    if not lh_player.class_is_scyther(player) then
+    if not fh.class_is_scyther(player) then
         return
     end
     -- look for nearby blocks to recharge harvest
@@ -18,7 +18,7 @@ end
 
 -- do a consume
 -- costs 10 harvest
-function lh_player.consume(player, dtime)
+function fh.consume(player, dtime)
     -- remove some harvest
     -- adds biomass
 end

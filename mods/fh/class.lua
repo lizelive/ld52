@@ -2,43 +2,43 @@ local modname = minetest.get_current_modname()
 local path = minetest.get_modpath(modname)
 local S = default.get_translator
 
-lh_player.class_survivor = 0
-lh_player.class_scyther = 1
+fh.class_survivor = 0
+fh.class_scyther = 1
 
-function lh_player.class_get(player)
-    return player:get_meta():get_int(lh_player.keys.class)
+function fh.class_get(player)
+    return player:get_meta():get_int(fh.keys.class)
 end
-function lh_player.class_set(player, class)
-    return player:get_meta():set_int(lh_player.keys.class, class)
+function fh.class_set(player, class)
+    return player:get_meta():set_int(fh.keys.class, class)
 end
 
-function lh_player.class_is_survivor(player)
-    return lh_player.class_get(player) == lh_player.class_survivor
+function fh.class_is_survivor(player)
+    return fh.class_get(player) == fh.class_survivor
 end
 
 -- can be called as much as you want without causing problems
 local function become_survivor(player)
     player_api.set_textures(player, {"player_survivor.png"})
-    hb.hide_hudbar(player, lh_player.keys.biomass)
-    hb.hide_hudbar(player, lh_player.keys.harvest)
+    hb.hide_hudbar(player, fh.keys.biomass)
+    hb.hide_hudbar(player, fh.keys.harvest)
 end
 
 -- can be called as much as you want without causing problems
 local function become_scyther(player)
     player_api.set_textures(player, {"player_scyther.png"})
-    hb.unhide_hudbar(player, lh_player.keys.biomass)
-    hb.unhide_hudbar(player, lh_player.keys.harvest)
+    hb.unhide_hudbar(player, fh.keys.biomass)
+    hb.unhide_hudbar(player, fh.keys.harvest)
 end
 
 
 
-function lh_player.class_become(player)
-    if not lh_player.class_is_survivor(player) then
+function fh.class_become(player)
+    if not fh.class_is_survivor(player) then
         become_scyther(player)
     else
         become_survivor(player)
     end
-    lh_player.fix_player_nametag(player)
+    fh.fix_player_nametag(player)
 end
 
 -- local function change_to_scyther
@@ -55,9 +55,9 @@ minetest.register_chatcommand("become_scyther", {
         local player = minetest.get_player_by_name(player_name)
         
         local meta = player:get_meta()
-        meta:set_int(lh_player.keys.biomass, lh_player.settings.start_biomass)
-        meta:set_int(lh_player.keys.harvest, lh_player.settings.start_harvest)
-        lh_player.class_set(player, lh_player.class_scyther)
+        meta:set_int(fh.keys.biomass, fh.settings.start_biomass)
+        meta:set_int(fh.keys.harvest, fh.settings.start_harvest)
+        fh.class_set(player, fh.class_scyther)
         become_scyther(player)
         -- "player_back.png"
     end
@@ -78,7 +78,7 @@ minetest.register_on_dieplayer(function(player)
     local meta = player:get_meta()
     local name = player:get_player_name()
 
-    if lh_player.class_is_survivor(player) then
+    if fh.class_is_survivor(player) then
         local msg = name .. " has been harvested"
         minetest.chat_send_all(msg)
     end
@@ -86,9 +86,9 @@ minetest.register_on_dieplayer(function(player)
     
 
 
-    meta:set_int(lh_player.keys.biomass, lh_player.settings.start_biomass)
-    meta:set_int(lh_player.keys.harvest, lh_player.settings.start_harvest)
-    lh_player.class_set(player, lh_player.class_scyther)
-    lh_player.class_become(player)
+    meta:set_int(fh.keys.biomass, fh.settings.start_biomass)
+    meta:set_int(fh.keys.harvest, fh.settings.start_harvest)
+    fh.class_set(player, fh.class_scyther)
+    fh.class_become(player)
     -- fix the player nametag
 end)

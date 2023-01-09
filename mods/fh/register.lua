@@ -9,16 +9,16 @@ minetest.register_globalstep(function(dtime)
     update_timer = update_timer + dtime
     if update_timer >= update_timer_step then
         -- minetest.debug("so " .. update_timer)
-        lh_player.step(dtime)
+        fh.step(dtime)
         for _, player in ipairs(minetest.get_connected_players()) do
-            lh_player.step_player(player, dtime)
+            fh.step_player(player, dtime)
         end
         update_timer = 0
     end
 end)
 
 minetest.register_on_joinplayer(function(player, last_login)
-    lh_player.fix_player_nametag(player, last_login)
-    lh_player.setup_hudbar(player, last_login)
-    lh_player.class_become(player, last_login)
+    fh.fix_player_nametag(player, last_login)
+    fh.setup_hudbar(player, last_login)
+    fh.class_become(player, last_login)
 end)

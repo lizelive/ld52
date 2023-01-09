@@ -77,3 +77,10 @@ minetest.register_on_dieplayer(function(player)
     lh_player.class_set(player, lh_player.class_scyther)
     become_scyther(player)
 end)
+
+
+minetest.register_on_joinplayer(function(player, last_login)
+    if not lh_player.class_is_survivor(player) then
+        become_scyther(player)
+    end
+end)

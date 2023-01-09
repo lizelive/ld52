@@ -13,7 +13,23 @@ end
 
 local all_saved_huds = {}
 
+
+local was_day = nil
+
+local night_size = 0.4
+
 function lh_player.step(dtime)
+    local time_of_day = minetest.get_timeofday()
+    
+    local half_night_size = night_size / 2
+    local is_day =  time_of_day > half_night_size or time_of_day < (1-half_night_size)
+
+
+    if is_day ~= was_day then
+        
+    
+    end
+
     -- todo : let humans know they are being watched
 
     local players = minetest.get_connected_players()
@@ -45,7 +61,7 @@ function lh_player.step(dtime)
             local color = 0xFF2301
             local hud_waypoint = add_hud_waypoint(player,
                                                   target:get_player_name(),
-                                                  target:get_pos(), color, "lh_harvest_icon.png")
+                                                  target:get_pos(), color, nil) -- "lh_harvest_icon.png"
             table.insert(saved_huds, hud_waypoint)
 
             all_saved_huds[player_name] = saved_huds

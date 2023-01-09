@@ -207,12 +207,48 @@ add_simple_flower(
 	"vine_drill",
 	S("vine drill"),
 	{-2 / 16, -0.5, -2 / 16, 2 / 16, 5 / 16, 2 / 16},
-	{color_red = 1, flammable = 1}
+	{color_red = 1, flammable = 1, hive =1}
 )
 
 add_simple_flower(
 	"alien_egg",
 	S("alien egg"),
 	{-2 / 16, -0.5, -2 / 16, 2 / 16, 5 / 16, 2 / 16},
-	{color_red = 1, flammable = 1, damage_per_second = 4 * 2,}
+	{color_red = 1, flammable = 1, hive =1, damage_per_second = 4 * 2,}
 )
+
+
+
+
+
+
+
+
+-- do the spread
+
+local spread_correspondences = {
+	["default:cobble"] = "default:mossycobble",
+	["stairs:slab_cobble"] = "stairs:slab_mossycobble",
+	["stairs:stair_cobble"] = "stairs:stair_mossycobble",
+	["stairs:stair_inner_cobble"] = "stairs:stair_inner_mossycobble",
+	["stairs:stair_outer_cobble"] = "stairs:stair_outer_mossycobble",
+	["walls:cobble"] = "walls:mossycobble",
+}
+minetest.register_abm({
+	label = "Harvest",
+	nodenames = {"group:organic"},
+	neighbors = {"group:hive"},
+	interval = 1,
+	chance = 10,
+	catch_up = true,
+	action = function(pos, node)
+		minetest.swap_node(pos,
+                           {name = "alien_blocks:dirt_with_alien_grass"})
+						   
+		-- local new_node = moss_correspondences[node.name]
+		-- if new_node then
+		-- 	minetest.swap_node(pos,
+        --                    {name = new_node})
+		-- end
+	end
+})

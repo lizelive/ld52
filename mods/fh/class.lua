@@ -20,18 +20,23 @@ end
 
 -- can be called as much as you want without causing problems
 local function become_survivor(player)
-    skins.skins[player:get_player_name()] = "player_survivor"
-    armor.update_skin()
-
+    set_skin(player, "player_survivor")
     -- player_api.set_textures(player, {"player_survivor.png"})
     hb.hide_hudbar(player, fh.keys.biomass)
     hb.hide_hudbar(player, fh.keys.harvest)
 end
 
+local function set_skin(player, skin)
+    local name = player:get_player_name()
+    skins.skins[name] = skin
+    armor:update_skin(skin)
+end
+
 -- can be called as much as you want without causing problems
 local function become_scyther(player)
-    skins.skins[player:get_player_name()] = "player_scyther"
-    armor.update_skin()
+    set_skin(player, "player_scyther")
+    -- armor.update_skin(name)
+
     -- player_api.set_textures(player, {"player_scyther.png"})
     hb.unhide_hudbar(player, fh.keys.biomass)
     hb.unhide_hudbar(player, fh.keys.harvest)
@@ -40,12 +45,16 @@ end
 
 
 function fh.class_become(player)
+    minetest.debug("become "..dump(player:get_player_name()))
+
     if not fh.class_is_survivor(player) then
         become_scyther(player)
     else
         become_survivor(player)
     end
     fh.fix_player_nametag(player)
+    
+
 end
 
 -- local function change_to_scyther

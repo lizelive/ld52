@@ -50,9 +50,9 @@ local function absorb(player, pos)
         local damge_done = hp - new_hp
         points_earned = points_earned + damge_done
         -- obj:get_entity_name() 
-        minetest.debug("i eat people " ..
-                           (obj:get_player_name() or obj:get_entity_name() or
-                               "other") .. " and i did " .. damge_done)
+        -- minetest.debug("i eat people " ..
+        --                    (obj:get_player_name() or obj:get_entity_name() or
+        --                        "other") .. " and i did " .. damge_done)
 
     end
 

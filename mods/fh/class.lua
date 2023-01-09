@@ -22,7 +22,7 @@ end
 local function set_skin(player, skin)
     local name = player:get_player_name()
     skins.skins[name] = skin
-    armor:update_skin(skin)
+    armor:update_skin(name)
 end
 
 

@@ -11,6 +11,8 @@ dofile(path .. "/utils.lua")
 dofile(path .. "/mark_organics.lua")
 dofile(path .. "/nodes.lua")
 
+dofile(path .. "/mobs.lua")
+
 dofile(path .. "/consume.lua")
 dofile(path .. "/items.lua")
 dofile(path .. "/hudbar.lua")

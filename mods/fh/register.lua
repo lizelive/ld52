@@ -43,27 +43,30 @@ i3.new_tab("scyther", {
 	end,
 
 	formspec = function(player, data, fs)
-        local formspec = "size[8,9]" ..
-        "label[0,0;Buy and Sell Blocks]" ..
-        "list[current_player;main;0,1;8,4;]" ..
-        "button[0,5;4,1;buy;Buy]" ..
-        "button[4,5;4,1;sell;Sell]" ..
-        "list[npc;sell;0,6;8,3;]"
-
-        -- fs(formspec)
-		fs("label", 3, 1, "Just a test")
-        fs"button[0,5;4,1;buy;Buy Spore (1000)]"
+		fs("label", 1, 1, "Harvester Shop")
+        local i = 0
+        for name, v in pairs(fh.settings.shop) do
+            fs("item_image_button", 0, 1 + i, 2, 2, v.name, "buy_" .. name, v.cost .. " biomass")
+            i = i + 2
+        end
+        
 		fs"label[3,2;Lorem Ipsum]"
 		-- No need to return anything
 	end,
 
 	-- Events handling happens here
 	fields = function(player, data, fields)
-		if fields.buy then
-			-- Do things
-            minetest.debug("buy buy buy")
-		end
-
+        for name, v in pairs(fh.settings.shop) do
+            if fields["buy_" .. name] then
+                local biomass = player:get_meta():get_int(fh.keys.biomass)
+                if biomass >= v.cost then
+                    local item_stack = ItemStack(v.name)
+                    item_stack:set_count(1)
+                    player:get_inventory():add_item("main", item_stack)
+                    player:get_meta():set_int(fh.keys.biomass, biomass - v.cost)
+                end
+            end
+        end
 		i3.set_fs(player) -- Update the formspec, mandatory
 	end,
 })

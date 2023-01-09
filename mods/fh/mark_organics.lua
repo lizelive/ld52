@@ -1,5 +1,3 @@
-minetest.debug("i eat people")
-
 local S = default.get_translator
 
 local target_absorb_from_mob = 10

@@ -62,11 +62,4 @@ if minetest.get_modpath("lucky_block") then
 	dofile(path .. "lucky_block.lua")
 end
 
-mobs:alias_mob("lh_mobs:tank", "lh_mobs:dungeon_master")
-mobs:alias_mob("lh_mobs:spore", "lh_mobs:tree_monster")
-
-
-mobs:register_egg("lh_mobs:tank", S("Tank"), "fire_basic_flame.png", 2, false)
-mobs:register_egg("lh_mobs:spore", S("Spore"), "flowers_mushroom_red.png", 2, false)
-
 print ("[MOD] Mobs Redo Monsters loaded")

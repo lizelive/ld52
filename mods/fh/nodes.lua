@@ -146,6 +146,7 @@ local function register_node_with_alien_grass(name, base)
 				tileable_vertical = false}},
 		groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1, hive = 1},
 		drop = "default:dirt",
+		waving = 3,
 		sounds = default.node_sound_dirt_defaults({
 			footstep = {name = "default_grass_footstep", gain = 0.25},
 		}),
@@ -234,6 +235,42 @@ local spread_correspondences = {
 	["stairs:stair_outer_cobble"] = "stairs:stair_outer_mossycobble",
 	["walls:cobble"] = "walls:mossycobble",
 }
+
+
+minetest.register_node("fh:forge", {
+    description = "Forge",
+    tiles = {"market_vertical.png", "market_vertical.png", "market.png"},
+	infotext="Forge high tier mats from drops",
+
+	on_construct = function(pos)
+		local meta = minetest.get_meta(pos)
+		meta:set_string("infotext", "Forge high tier mats from drops");
+		local     formspec = "size[8,8.5]"..
+		"image[2.75,1.5;1,1;default_furnace_fire_bg.png]"..
+		"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
+		"list[context;out;4.75,0.96;1,1;]"..
+		"list[current_player;main;0,4.25;9,4;]"..
+		"listring[context;out]"..
+		"listring[current_player;main]";
+		meta:set_string("formspec", formspec);
+		local inv = meta:get_inventory()
+		inv:set_size('out', 1)
+	end,
+	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+		return stack:get_count()
+	end
+})
+
+minetest.register_decoration({
+    deco_type = "simple",
+    place_on = {"default:dirt_with_grass", "default:sand"},
+    sidelen = 16,
+    fill_ratio = 0.001,
+    y_max = 200,
+    y_min = -50,
+    decoration = "fh:forge"
+})
+
 minetest.register_abm({
 	label = "Harvest",
 	nodenames = {"group:organic"},

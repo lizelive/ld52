@@ -3,7 +3,7 @@ local S = default.get_translator
 local target_absorb_from_mob = 10
 
 local organic_groups = {
-    "fleshy", "meat", "eatable", "flora", "grass", "leaves", "soil"
+    fleshy = "fh:biomass", "meat", "eatable", "flora", "fh:biomass_with", "leaves", "soil"
 }
 
 -- local function shallowCopy(original)

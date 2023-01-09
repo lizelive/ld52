@@ -2,7 +2,7 @@ local S = default.get_translator
 
 local mod_def = minetest.get_modpath("default")
 
-minetest.register_node("alien_blocks:flesh_raw", {
+minetest.register_node("fh:flesh_raw", {
 	description = "Fresh Flesh Block",
 	tiles = {"alien_flesh_raw_top.png", "alien_flesh_raw_bottom.png", "alien_flesh_raw_side.png"},
 	paramtype2 = "facedir",
@@ -12,7 +12,7 @@ minetest.register_node("alien_blocks:flesh_raw", {
 	on_use = minetest.item_eat(20)
 })
 
-minetest.register_node("alien_blocks:flesh", {
+minetest.register_node("fh:flesh", {
 	description = "Flesh Block",
 	tiles = {"alien_flesh_top.png", "alien_flesh_bottom.png", "alien_flesh_side.png"},
 	paramtype2 = "facedir",
@@ -22,7 +22,7 @@ minetest.register_node("alien_blocks:flesh", {
 	on_use = minetest.item_eat(20)
 })
 
-minetest.register_node("alien_blocks:meatblock_raw", {
+minetest.register_node("fh:meatblock_raw", {
 	description = "Raw Meat Block",
 	tiles = {"mobs_meat_raw_top.png", "mobs_meat_raw_bottom.png", "mobs_meat_raw_side.png"},
 	paramtype2 = "facedir",
@@ -32,7 +32,7 @@ minetest.register_node("alien_blocks:meatblock_raw", {
 	on_use = minetest.item_eat(20)
 })
 
-minetest.register_node("alien_blocks:meatblock", {
+minetest.register_node("fh:meatblock", {
 	description = "Meat Block",
 	tiles = {"mobs_meat_top.png", "mobs_meat_bottom.png", "mobs_meat_side.png"},
 	paramtype2 = "facedir",
@@ -45,7 +45,7 @@ minetest.register_node("alien_blocks:meatblock", {
 
 
 
-minetest.register_node("alien_blocks:fleshy_block", {
+minetest.register_node("fh:fleshy_block", {
 	description = "Meat Block",
 	tiles = {"fleshy_block.png"},
 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
@@ -55,7 +55,7 @@ minetest.register_node("alien_blocks:fleshy_block", {
 })
 
 
-minetest.register_node("alien_blocks:tendril", {
+minetest.register_node("fh:tendril", {
 	description = "Meat Block",
 	tiles = {"tendril_top.png", "tendril_top.png", "tendril.png"},
 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
@@ -66,7 +66,7 @@ minetest.register_node("alien_blocks:tendril", {
 })
 
 
-minetest.register_node("alien_blocks:alienmetalblock", {
+minetest.register_node("fh:alienmetalblock", {
 	description = "alien metal block",
 	tiles = {"alien_metal_block.png"},
 	is_ground_content = false,
@@ -74,7 +74,7 @@ minetest.register_node("alien_blocks:alienmetalblock", {
 	sounds = default.node_sound_metal_defaults(),
 })
 
-minetest.register_node("alien_blocks:alienmetal", {
+minetest.register_node("fh:alienmetal", {
 	description = "alien metal",
 	tiles = {"alien_metal.png"},
 	is_ground_content = false,
@@ -82,7 +82,7 @@ minetest.register_node("alien_blocks:alienmetal", {
 	sounds = default.node_sound_metal_defaults(),
 })
 
-minetest.register_node("alien_blocks:alien_metal_with_vine_drill", {
+minetest.register_node("fh:alien_metal_with_vine_drill", {
 	description = "alien metal with vine drill",
 	tiles = {"corrupted_alien_metal.png", "alien_metal.png", "alien_metal.png^vine_drill.png"},
 	is_ground_content = false,
@@ -92,7 +92,7 @@ minetest.register_node("alien_blocks:alien_metal_with_vine_drill", {
 	sounds = default.node_sound_metal_defaults(),
 })
 
-minetest.register_node("alien_blocks:alien_metal_with_climby_eye_vine", {
+minetest.register_node("fh:alien_metal_with_climby_eye_vine", {
 	description = "alien metal with climby_eye_vine",
 	tiles = {"alien_metal.png", "alien_metal.png", "alien_metal.png^climby_eye_vine.png"},
 	is_ground_content = false,
@@ -114,7 +114,7 @@ end
 
 my_register_stair_and_slab(
 	"alienmetalblock",
-	"alien_blocks:alienmetalblock",
+	"fh:alienmetalblock",
 	{cracky = 1, level = 2},
 	{"alien_metal_block.png"},
 	"alien metal Stair",
@@ -125,7 +125,7 @@ my_register_stair_and_slab(
 
 my_register_stair_and_slab(
 	"alienmetal",
-	"alien_blocks:alienmetal",
+	"fh:alienmetal",
 	{cracky = 1, level = 2},
 	{"alien_metal.png"},
 	"alien metal Stair",
@@ -139,7 +139,7 @@ my_register_stair_and_slab(
 
 
 local function register_node_with_alien_grass(name, base)
-	minetest.register_node("alien_blocks:".. name .. "_with_alien_grass", {
+	minetest.register_node("fh:".. name .. "_with_alien_grass", {
 		description = S(name .. " with Alien Grass"),
 		tiles = {base .. "^alien_grass.png", base,
 			{name = base.."^alien_grass_side.png",
@@ -156,7 +156,7 @@ register_node_with_alien_grass("dirt", "default_dirt.png")
 register_node_with_alien_grass("fleshs", "fleshy_block.png")
 
 
--- minetest.register_node("alien_blocks:dirt_with_alien_grass", {
+-- minetest.register_node("fh:dirt_with_alien_grass", {
 -- 	description = S("Dirt with Grass"),
 -- 	tiles = {"default_dirt.png^alien_grass.png", "default_dirt.png",
 -- 		{name = "default_dirt.png^alien_grass_side.png",
@@ -177,7 +177,7 @@ local function add_simple_flower(name, desc, box, f_groups)
 	f_groups.attached_node = 1
 	f_groups.hive = 1
 
-	minetest.register_node("alien_blocks:" .. name, {
+	minetest.register_node("fh:" .. name, {
 		description = desc,
 		drawtype = "plantlike",
 		waving = 1,
@@ -243,7 +243,7 @@ minetest.register_abm({
 	catch_up = true,
 	action = function(pos, node)
 		minetest.swap_node(pos,
-                           {name = "alien_blocks:dirt_with_alien_grass"})
+                           {name = "fh:dirt_with_alien_grass"})
 						   
 		-- local new_node = moss_correspondences[node.name]
 		-- if new_node then

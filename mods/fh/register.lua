@@ -22,3 +22,48 @@ minetest.register_on_joinplayer(function(player, last_login)
     fh.setup_hudbar(player, last_login)
     fh.class_become(player, last_login)
 end)
+
+
+
+-- nice
+
+i3.new_tab("scyther", {
+	description = "scyther shop",
+	image = "eat_tool.png", -- Optional, add an image next to the tab description
+
+	--
+	-- The functions below are all optional
+	--
+
+	-- Determine if the tab is visible by a player, return false to hide the tab
+	access = function(player, data)
+		-- local name = player:get_player_name()
+        return not fh.class_is_survivor(player)
+		-- return name == "singleplayer"
+	end,
+
+	formspec = function(player, data, fs)
+        local formspec = "size[8,9]" ..
+        "label[0,0;Buy and Sell Blocks]" ..
+        "list[current_player;main;0,1;8,4;]" ..
+        "button[0,5;4,1;buy;Buy]" ..
+        "button[4,5;4,1;sell;Sell]" ..
+        "list[npc;sell;0,6;8,3;]"
+
+        -- fs(formspec)
+		fs("label", 3, 1, "Just a test")
+        fs"button[0,5;4,1;buy;Buy Spore (1000)]"
+		fs"label[3,2;Lorem Ipsum]"
+		-- No need to return anything
+	end,
+
+	-- Events handling happens here
+	fields = function(player, data, fields)
+		if fields.buy then
+			-- Do things
+            minetest.debug("buy buy buy")
+		end
+
+		i3.set_fs(player) -- Update the formspec, mandatory
+	end,
+})

@@ -2,6 +2,8 @@ local modname = minetest.get_current_modname()
 local path = minetest.get_modpath(modname)
 local S = default.get_translator
 
+skins = { skins = {} }
+
 fh.class_survivor = 0
 fh.class_scyther = 1
 
@@ -18,14 +20,19 @@ end
 
 -- can be called as much as you want without causing problems
 local function become_survivor(player)
-    player_api.set_textures(player, {"player_survivor.png"})
+    skins.skins[player:get_player_name()] = "player_survivor"
+    armor.update_skin()
+
+    -- player_api.set_textures(player, {"player_survivor.png"})
     hb.hide_hudbar(player, fh.keys.biomass)
     hb.hide_hudbar(player, fh.keys.harvest)
 end
 
 -- can be called as much as you want without causing problems
 local function become_scyther(player)
-    player_api.set_textures(player, {"player_scyther.png"})
+    skins.skins[player:get_player_name()] = "player_scyther"
+    armor.update_skin()
+    -- player_api.set_textures(player, {"player_scyther.png"})
     hb.unhide_hudbar(player, fh.keys.biomass)
     hb.unhide_hudbar(player, fh.keys.harvest)
 end
@@ -92,3 +99,7 @@ minetest.register_on_dieplayer(function(player)
     fh.class_become(player)
     -- fix the player nametag
 end)
+
+
+
+armor.set_skin_mod("skins")

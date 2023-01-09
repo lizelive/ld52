@@ -35,7 +35,7 @@ local function absorb(player, pos)
     for i = 1, #pos_list do
         -- todo totally remove air blocks
         minetest.swap_node(pos_list[i],
-                           {name = "alien_blocks:dirt_with_alien_grass"})
+                           {name = "fh:dirt_with_alien_grass"})
         points_earned = points_earned + 1
     end
 
@@ -61,11 +61,10 @@ local function absorb(player, pos)
     total_biomass = total_biomass + points_earned
     meta:set_int(fh.keys.biomass, total_biomass)
     minetest.debug("i ate " .. points_earned .. " now have " .. total_biomass)
-    hb.change_hudbar(player, fh.keys.biomass_bar, total_biomass)
 end
 
 minetest.register_tool("fh:consume", {
-    description = "Devour biomass",
+    description = "Harvest Biomass",
     inventory_image = "eat_tool.png",
     tool_capabilities = {
         full_punch_interval = 1.5,

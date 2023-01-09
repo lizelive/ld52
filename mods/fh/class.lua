@@ -18,13 +18,6 @@ function fh.class_is_survivor(player)
     return fh.class_get(player) == fh.class_survivor
 end
 
--- can be called as much as you want without causing problems
-local function become_survivor(player)
-    set_skin(player, "player_survivor")
-    -- player_api.set_textures(player, {"player_survivor.png"})
-    hb.hide_hudbar(player, fh.keys.biomass)
-    hb.hide_hudbar(player, fh.keys.harvest)
-end
 
 local function set_skin(player, skin)
     local name = player:get_player_name()
@@ -32,11 +25,30 @@ local function set_skin(player, skin)
     armor:update_skin(skin)
 end
 
+
+local function set_invis(player, invis)
+    local name = player:get_player_name()
+    if invis then
+        mobs.invis[name] = true
+    else
+        mobs.invis[name] = nil
+    end
+end
+
+-- can be called as much as you want without causing problems
+local function become_survivor(player)
+    set_skin(player, "player_survivor")
+    set_invis(player, false)
+    -- player_api.set_textures(player, {"player_survivor.png"})
+    hb.hide_hudbar(player, fh.keys.biomass)
+    hb.hide_hudbar(player, fh.keys.harvest)
+end
+
 -- can be called as much as you want without causing problems
 local function become_scyther(player)
     set_skin(player, "player_scyther")
+    set_invis(player, true)
     -- armor.update_skin(name)
-
     -- player_api.set_textures(player, {"player_scyther.png"})
     hb.unhide_hudbar(player, fh.keys.biomass)
     hb.unhide_hudbar(player, fh.keys.harvest)

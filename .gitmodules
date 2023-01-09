@@ -10,9 +10,6 @@
 [submodule "mods/content/player_monoids"]
 	path = mods/content/player_monoids
 	url = https://github.com/minetest-mods/player_monoids.git
-[submodule "mods/content/hbsprint"]
-	path = mods/content/hbsprint
-	url = https://github.com/minetest-mods/hbsprint.git
 [submodule "mods/content/hunger_ng"]
 	path = mods/content/hunger_ng
 	url = https://gitlab.com/4w/hunger_ng.git
@@ -37,3 +34,9 @@
 [submodule "mods/content/creatura"]
 	path = mods/content/creatura
 	url = https://github.com/ElCeejo/creatura.git
+[submodule "mods/content/sprint_lite"]
+	path = mods/content/sprint_lite
+	url = https://github.com/mt-historical/sprint_lite
+[submodule "mods/content/3d_armor"]
+	path = mods/content/3d_armor
+	url = https://github.com/minetest-mods/3d_armor.git

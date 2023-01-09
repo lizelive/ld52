@@ -10,6 +10,8 @@ mobs:register_mob("fh:spore", {
 	passive = false,
 	attack_type = "dogfight",
 	attack_animals = true,
+    attack_players = true,
+    attack_chance = 80,
 	--specific_attack = {"player", "mobs_animal:chicken"},
 	reach = 2,
 	damage = 2,
@@ -30,7 +32,11 @@ mobs:register_mob("fh:spore", {
 	walk_velocity = 1,
 	run_velocity = 3,
     replace_what = {"group:organic"},
-    replace_with = "fh:dirt_with_alien_grass",
+    replace_with = "fh:biomass",
+    replace_rate = 10,
+    on_replace = function(self, pos, oldnode, newnode)
+        minetest.debug("on_replace called pos="..minetest.pos_to_string(pos) .. "owner= ".. self.owner)
+    end,
 	jump = true,
 	view_range = 15,
 	drops = {
@@ -77,7 +83,7 @@ if not mobs.custom_spawn_monster then
 
 	mobs:spawn({
 		name = "fh:spore",
-		nodes = {"group:leaves"},
+		nodes = {"group:hive"},
 		max_light = 7,
 		chance = 7000,
 		min_height = 0,

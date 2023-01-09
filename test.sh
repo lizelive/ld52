@@ -1,0 +1,1 @@
+minetest --go --address localhost --name human`date +%s` --password nope

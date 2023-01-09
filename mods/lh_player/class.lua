@@ -30,6 +30,17 @@ local function become_scyther(player)
     hb.unhide_hudbar(player, lh_player.keys.harvest)
 end
 
+
+
+function lh_player.class_become(player)
+    if not lh_player.class_is_survivor(player) then
+        become_scyther(player)
+    else
+        become_survivor(player)
+    end
+    lh_player.fix_player_nametag(player)
+end
+
 -- local function change_to_scyther
 
 minetest.register_chatcommand("become_scyther", {
@@ -72,15 +83,12 @@ minetest.register_on_dieplayer(function(player)
         minetest.chat_send_all(msg)
     end
     -- oh it's your first death. congrats
+    
+
+
     meta:set_int(lh_player.keys.biomass, lh_player.settings.start_biomass)
     meta:set_int(lh_player.keys.harvest, lh_player.settings.start_harvest)
     lh_player.class_set(player, lh_player.class_scyther)
-    become_scyther(player)
-end)
-
-
-minetest.register_on_joinplayer(function(player, last_login)
-    if not lh_player.class_is_survivor(player) then
-        become_scyther(player)
-    end
+    lh_player.class_become(player)
+    -- fix the player nametag
 end)

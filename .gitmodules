@@ -28,3 +28,12 @@
 [submodule "mods/content/minetest-entity_modifier"]
 	path = mods/content/minetest-entity_modifier
 	url = https://github.com/j8r/minetest-entity_modifier.git
+[submodule "mods/content/people"]
+	path = mods/content/people
+	url = https://github.com/Skandarella/people
+[submodule "mods/content/nativevillages"]
+	path = mods/content/nativevillages
+	url = https://github.com/Skandarella/nativevillages
+[submodule "mods/content/creatura"]
+	path = mods/content/creatura
+	url = https://github.com/ElCeejo/creatura.git

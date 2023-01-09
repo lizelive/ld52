@@ -17,4 +17,8 @@ minetest.register_globalstep(function(dtime)
     end
 end)
 
-minetest.register_on_joinplayer(lh_player.setup_hudbar)
+minetest.register_on_joinplayer(function(player, last_login)
+    lh_player.fix_player_nametag(player, last_login)
+    lh_player.setup_hudbar(player, last_login)
+    lh_player.class_become(player, last_login)
+end)

@@ -154,10 +154,10 @@ local function register_node_with_alien_grass(name, base)
 end
 
 register_node_with_alien_grass("dirt", "default_dirt.png")
-register_node_with_alien_grass("fleshs", "fleshy_block.png")
+register_node_with_alien_grass("biomass", "biomass.png")
 
 
--- minetest.register_node("fh:dirt_with_alien_grass", {
+-- minetest.register_node("fh:biomass_with_alien_grass", {
 -- 	description = S("Dirt with Grass"),
 -- 	tiles = {"default_dirt.png^alien_grass.png", "default_dirt.png",
 -- 		{name = "default_dirt.png^alien_grass_side.png",
@@ -280,7 +280,7 @@ minetest.register_abm({
 	catch_up = true,
 	action = function(pos, node)
 		minetest.swap_node(pos,
-                           {name = "fh:dirt_with_alien_grass"})
+                           {name = "fh:biomass_with_alien_grass"})
 						   
 		-- local new_node = moss_correspondences[node.name]
 		-- if new_node then

@@ -35,7 +35,7 @@ local function absorb(player, pos)
     for i = 1, #pos_list do
         -- todo totally remove air blocks
         minetest.swap_node(pos_list[i],
-                           {name = "fh:dirt_with_alien_grass"})
+                           {name = "fh:biomass_with_alien_grass"})
         points_earned = points_earned + 1
     end
 

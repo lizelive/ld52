@@ -275,7 +275,7 @@ minetest.register_abm({
 	label = "Harvest",
 	nodenames = {"group:organic"},
 	neighbors = {"group:hive"},
-	interval = 1,
+	interval = 6,
 	chance = 10,
 	catch_up = true,
 	action = function(pos, node)

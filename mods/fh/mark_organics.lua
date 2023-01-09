@@ -3,7 +3,9 @@ local S = default.get_translator
 local target_absorb_from_mob = 10
 
 local organic_groups = {
-    fleshy = "fh:biomass", "meat", "eatable", "flora", "fh:biomass_with", "leaves", "soil"
+    fleshy = "fh:biomass", meat = "fh:biomass",
+    eatable = "fh:biomass", flora = "fh:alien_egg",
+    leaves="fh:trickle", soil="fh:biomass_with_alien_grass", tree = "fh:tendril"
 }
 
 -- local function shallowCopy(original)
@@ -26,7 +28,7 @@ end
 
 for node_name, node in pairs(minetest.registered_nodes) do
     local is_organic = false
-    for _,group in pairs(organic_groups) do
+    for group, into in pairs(organic_groups) do
         if node.groups[group] then
             is_organic = true
             break

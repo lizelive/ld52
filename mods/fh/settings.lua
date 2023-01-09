@@ -7,7 +7,9 @@ local settings = {
     shop = {
         tank = {name = "lh_mobs:dungeon_master", cost = 1000},
         spore = {name = "fh:spore", cost = 100},
-        consume = {name = "fh:consume", cost = 100}
+        consume = {name = "fh:consume", cost = 100},
+        chiten = {name = "fh:chiten", cost = 10},
+        biomass = {name = "fh:biomass", cost = 10}
     }
 }
 return settings

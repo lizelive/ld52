@@ -2,7 +2,7 @@
 version: "2.1"
 services:
   minetest:
-    image: lscr.io/linuxserver/minetest:latest
+    image: lscr.io/linuxserver/minetest:latest # 5.5.1
     container_name: minetest
     environment:
       - PUID=1000

@@ -1,8 +1,5 @@
-[submodule "textures"]
-	path = textures
-	url = https://gitlab.com/zughy-friends-minetest/soothing-32.git/
-[submodule "mods/core/mobs_redo"]
-	path = mods/core/mobs_redo
+[submodule "mods/content/mobs_redo"]
+	path = mods/content/mobs_redo
 	url = https://notabug.org/tenplus1/mobs_redo.git
 [submodule "mods/content/minetest_hudbars"]
 	path = mods/content/minetest_hudbars
@@ -13,27 +10,11 @@
 [submodule "mods/content/hunger_ng"]
 	path = mods/content/hunger_ng
 	url = https://gitlab.com/4w/hunger_ng.git
-[submodule "mods/commoditymarket"]
-	path = mods/commoditymarket
-	url = https://github.com/minetest-mods/commoditymarket
 [submodule "mods/content/i3"]
 	path = mods/content/i3
 	url = https://github.com/minetest-mods/i3.git
-# [submodule "mods/content/3d_armor"]
-# 	path = mods/content/3d_armor
-# 	url = https://github.com/minetest-mods/3d_armor.git
-[submodule "mods/content/minetest-entity_modifier"]
-	path = mods/content/minetest-entity_modifier
-	url = https://github.com/j8r/minetest-entity_modifier.git
 [submodule "mods/content/people"]
 	path = mods/content/people
-	url = https://github.com/Skandarella/people
-[submodule "mods/content/nativevillages"]
-	path = mods/content/nativevillages
-	url = https://github.com/Skandarella/nativevillages
-[submodule "mods/content/creatura"]
-	path = mods/content/creatura
-	url = https://github.com/ElCeejo/creatura.git
 [submodule "mods/content/sprint_lite"]
 	path = mods/content/sprint_lite
 	url = https://github.com/mt-historical/sprint_lite

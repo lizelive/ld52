@@ -15,9 +15,9 @@
 	url = https://github.com/minetest-mods/i3.git
 [submodule "mods/content/people"]
 	path = mods/content/people
-[submodule "mods/content/sprint_lite"]
-	path = mods/content/sprint_lite
-	url = https://github.com/mt-historical/sprint_lite
+[submodule "mods/content/hbsprint"]
+	path = mods/content/hbsprint
+	url = https://github.com/minetest-mods/hbsprint/
 [submodule "mods/content/3d_armor"]
 	path = mods/content/3d_armor
 	url = https://github.com/minetest-mods/3d_armor.git

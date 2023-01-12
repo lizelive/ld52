@@ -26,4 +26,4 @@
 	url = https://cheapiesystems.com/git/newplayer
 [submodule "textures"]
 	path = textures
-	url = https://github.com/MysticTempest/REFI_Textures
+	url = https://github.com/MysticTempest/REFI_Textures.git

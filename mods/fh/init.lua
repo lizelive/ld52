@@ -24,13 +24,38 @@ function fh.step_player(player, dtime)
     local class_is_survivor = fh.class_is_survivor(player)
     local biomass = meta:get_int(fh.keys.biomass)
     local harvest = meta:get_int(fh.keys.harvest)
+
+    local pos = player:get_pos()
+    local radius = 3
+    local nodenames = {"fh:hive"}
+    
+    local hive_blocks_near =  minetest.find_node_near(pos, radius, nodenames)
+
+    local player_name = player:get_player_name()
+    local hunger = hbhunger.hunger[player_name]
+
     if class_is_survivor then
+       
         -- do it
         -- idk
     else
+        if hive_blocks_near then
+            biomass = biomass + 1
+            end
+        if hunger and (hunger < hbhunger.SAT_MAX ) and ( biomass > fh.settings.biomass_per_hunger) then
+            hunger = hunger + 1
+            biomass = biomass - fh.settings.biomass_per_hunger
+            hunger = math.min(hunger, hbhunger.SAT_MAX)
+        end
         hb.change_hudbar(player, fh.keys.biomass, biomass)
         hb.change_hudbar(player, fh.keys.harvest, harvest)
     end
+
+    
+    meta:set_int(fh.keys.harvest, harvest)
+    meta:set_int(fh.keys.biomass, biomass)
+    hbhunger.hunger[player_name] = hunger
+
     -- damage humans standing on bad stuff
 end
 

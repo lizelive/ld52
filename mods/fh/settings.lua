@@ -4,6 +4,7 @@ local settings = {
     max_harvest = 100,
     start_harvest = 50,
     biomass_per_health = 10,
+    biomass_per_hunger = 10,
     shop = {
         tank = {name = "lh_mobs:dungeon_master", cost = 1000},
         spore = {name = "fh:spore", cost = 100},

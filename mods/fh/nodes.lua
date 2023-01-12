@@ -78,7 +78,7 @@ minetest.register_node("fh:tendril", {
 minetest.register_node("fh:heart", {
 	description = "heart",
 	drawtype = "mesh",
-	glow = "heart.obj",
+	mesh = "heart.obj",
 	tiles = {"biomass.png", "alien_metal.png"},
 	is_ground_content = false,
 	groups = {cracky = 1, level = 2},
@@ -88,7 +88,7 @@ minetest.register_node("fh:heart", {
 minetest.register_node("fh:polyp", {
 	description = "polyp",
 	drawtype = "mesh",
-	glow = "polyp.obj",
+	mesh = "polyp.obj",
 	tiles = {"biomass.png", "alien_metal.png"},
 	is_ground_content = false,
 	groups = {cracky = 1, level = 2},

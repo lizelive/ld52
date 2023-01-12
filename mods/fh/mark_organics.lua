@@ -18,7 +18,9 @@ fh.corrupt = function(pos, node)
     local into = fh.corrupt_into[name] or "fh:biomass"
     if into then
         minetest.swap_node(pos, {name=into})
+        return true
     end
+    return false
 end
 
 

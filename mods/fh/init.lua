@@ -23,12 +23,13 @@ function fh.step_player(player, dtime)
     local meta = player:get_meta()
     local class_is_survivor = fh.class_is_survivor(player)
     local biomass = meta:get_int(fh.keys.biomass)
-
+    local harvest = meta:get_int(fh.keys.harvest)
     if class_is_survivor then
         -- do it
         -- idk
     else
         hb.change_hudbar(player, fh.keys.biomass, biomass)
+        hb.change_hudbar(player, fh.keys.harvest, harvest)
     end
     -- damage humans standing on bad stuff
 end

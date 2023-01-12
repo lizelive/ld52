@@ -33,10 +33,10 @@ local function absorb(player, pos)
     local points_earned = 0
 
     for i = 1, #pos_list do
-        -- todo totally remove air blocks
-        minetest.swap_node(pos_list[i],
-                           {name = "fh:biomass_with_alien_grass"})
-        points_earned = points_earned + 1
+        -- swap to groupted to avoid having to read
+        local pos = pos_list[i]
+        local node = minetest.get_node(pos)
+        if fh.corrupt(pos, node) then points_earned = points_earned + 1 end
     end
 
     local obj_list = minetest.get_objects_in_area(pos1, pos2)
@@ -58,6 +58,12 @@ local function absorb(player, pos)
 
     local meta = player:get_meta()
     local total_biomass = meta:get_int(fh.keys.biomass)
+
+    if total_biomass > fh.settings.max_biomass then
+        minetest.chat_send_player(player:get_player_name(),
+                                  "You are too full to eat more. Go spend some biomass at the hive. (or build a new one!)")
+        total_biomass = fh.settings.max_biomass
+    end
     total_biomass = total_biomass + points_earned
     meta:set_int(fh.keys.biomass, total_biomass)
     -- minetest.debug("i ate " .. points_earned .. " now have " .. total_biomass)

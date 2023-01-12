@@ -7,9 +7,9 @@
 [submodule "mods/content/player_monoids"]
 	path = mods/content/player_monoids
 	url = https://github.com/minetest-mods/player_monoids.git
-[submodule "mods/content/hunger_ng"]
-	path = mods/content/hunger_ng
-	url = https://gitlab.com/4w/hunger_ng.git
+[submodule "mods/content/hbhunger"]
+	path = mods/content/hbhunger
+	url = https://codeberg.org/Wuzzy/minetest_hbhunger.git
 [submodule "mods/content/i3"]
 	path = mods/content/i3
 	url = https://github.com/minetest-mods/i3.git

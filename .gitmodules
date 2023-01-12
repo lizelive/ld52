@@ -1,27 +1,25 @@
-[submodule "mods/content/mobs_redo"]
+[submodule "mobs_redo"]
 	path = mods/content/mobs_redo
 	url = https://notabug.org/tenplus1/mobs_redo.git
-[submodule "mods/content/minetest_hudbars"]
-	path = mods/content/minetest_hudbars
+[submodule "hudbars"]
+	path = mods/content/hudbars
 	url = https://codeberg.org/Wuzzy/minetest_hudbars.git
-[submodule "mods/content/player_monoids"]
+[submodule "player_monoids"]
 	path = mods/content/player_monoids
 	url = https://github.com/minetest-mods/player_monoids.git
-[submodule "mods/content/hbhunger"]
+[submodule "hbhunger"]
 	path = mods/content/hbhunger
 	url = https://codeberg.org/Wuzzy/minetest_hbhunger.git
-[submodule "mods/content/i3"]
+[submodule "i3"]
 	path = mods/content/i3
 	url = https://github.com/minetest-mods/i3.git
-[submodule "mods/content/people"]
-	path = mods/content/people
-[submodule "mods/content/hbsprint"]
+[submodule "hbsprint"]
 	path = mods/content/hbsprint
-	url = https://github.com/minetest-mods/hbsprint/
-[submodule "mods/content/3d_armor"]
+	url = https://github.com/minetest-mods/hbsprint.git
+[submodule "3d_armor"]
 	path = mods/content/3d_armor
 	url = https://github.com/minetest-mods/3d_armor.git
-[submodule "mods/content/newplayer"]
+[submodule "newplayer"]
 	path = mods/content/newplayer
 	url = https://cheapiesystems.com/git/newplayer
 [submodule "textures"]

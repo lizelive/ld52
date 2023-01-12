@@ -74,6 +74,28 @@ minetest.register_node("fh:tendril", {
 -- 	sounds = default.node_sound_metal_defaults(),
 -- })
 
+
+minetest.register_node("fh:heart", {
+	description = "heart",
+	drawtype = "mesh",
+	glow = "heart.obj",
+	tiles = {"biomass.png", "alien_metal.png"},
+	is_ground_content = false,
+	groups = {cracky = 1, level = 2},
+	sounds = default.node_sound_metal_defaults(),
+})
+
+minetest.register_node("fh:polyp", {
+	description = "polyp",
+	drawtype = "mesh",
+	glow = "polyp.obj",
+	tiles = {"biomass.png", "alien_metal.png"},
+	is_ground_content = false,
+	groups = {cracky = 1, level = 2},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+
 minetest.register_node("fh:chiten", {
 	description = "chiten",
 	tiles = {"alien_metal.png"},
@@ -145,7 +167,7 @@ local function register_node_with_alien_grass(name, base)
 			{name = base.."^alien_grass_side.png",
 				tileable_vertical = false}},
 		groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1, hive = 1},
-		drop = "default:dirt",
+		drop = "fh:biomass",
 		waving = 3,
 		sounds = default.node_sound_dirt_defaults({
 			footstep = {name = "default_grass_footstep", gain = 0.25},
@@ -261,6 +283,37 @@ minetest.register_node("fh:forge", {
 	end
 })
 
+minetest.register_node("fh:trickle", {
+	description = S("trickles"),
+	drawtype = "allfaces_optional",
+	waving = 1,
+	tiles = {"alien_corruption.png"},
+	special_tiles = {"biomass.png"},
+	paramtype = "light",
+	is_ground_content = false,
+	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+	drop = {
+		max_items = 1,
+		items = {
+			{
+				-- player will get sapling with 1/20 chance
+				items = {"default:sapling"},
+				rarity = 20,
+			},
+			{
+				-- player will get leaves only if he get no saplings,
+				-- this is because max_items is 1
+				items = {"fh:trickle"},
+			}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+
+	after_place_node = default.after_place_leaves,
+})
+
+
+
 minetest.register_decoration({
     deco_type = "simple",
     place_on = {"default:dirt_with_grass", "default:sand"},
@@ -278,14 +331,5 @@ minetest.register_abm({
 	interval = 6,
 	chance = 10,
 	catch_up = true,
-	action = function(pos, node)
-		minetest.swap_node(pos,
-                           {name = "fh:biomass_with_alien_grass"})
-						   
-		-- local new_node = moss_correspondences[node.name]
-		-- if new_node then
-		-- 	minetest.swap_node(pos,
-        --                    {name = new_node})
-		-- end
-	end
+	action = fh.corrupt
 })

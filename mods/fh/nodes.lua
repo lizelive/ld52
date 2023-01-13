@@ -81,7 +81,7 @@ minetest.register_node("fh:heart", {
 	mesh = "heart.obj",
 	tiles = {"biomass.png", "alien_metal.png"},
 	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
+	groups = {cracky = 1, level = 2, hive = 1},
 	sounds = default.node_sound_metal_defaults(),
 })
 
@@ -91,7 +91,7 @@ minetest.register_node("fh:polyp", {
 	mesh = "polyp.obj",
 	tiles = {"biomass.png", "alien_metal.png"},
 	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
+	groups = {cracky = 1, level = 2, hive = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -100,7 +100,7 @@ minetest.register_node("fh:chiten", {
 	description = "chiten",
 	tiles = {"alien_metal.png"},
 	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
+	groups = {cracky = 1, level = 2, hive = 1},
 	sounds = default.node_sound_metal_defaults(),
 })
 
@@ -110,7 +110,7 @@ minetest.register_node("fh:alien_metal_with_vine_drill", {
 	is_ground_content = false,
 	paramtype2 = "facedir",
 	on_place = minetest.rotate_node,
-	groups = {cracky = 1, level = 2},
+	groups = {cracky = 1, level = 2, hive = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -118,7 +118,7 @@ minetest.register_node("fh:alien_metal_with_climby_eye_vine", {
 	description = "alien metal with climby_eye_vine",
 	tiles = {"alien_metal.png", "alien_metal.png", "alien_metal.png^climby_eye_vine.png"},
 	is_ground_content = false,
-	groups = {cracky = 1, level = 2},
+	groups = {cracky = 1, level = 2, hive = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -291,7 +291,7 @@ minetest.register_node("fh:trickle", {
 	special_tiles = {"biomass.png"},
 	paramtype = "light",
 	is_ground_content = false,
-	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1},
+	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, hive = 1},
 	drop = {
 		max_items = 1,
 		items = {

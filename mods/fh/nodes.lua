@@ -48,7 +48,7 @@ local mod_def = minetest.get_modpath("default")
 minetest.register_node("fh:biomass", {
 	description = "biomass",
 	tiles = {"biomass.png"},
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 0, hive = 1},
+	groups = {choppy = 1, flammable = 1, hive = 1},
 	sounds = mod_def and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
 })
@@ -57,7 +57,7 @@ minetest.register_node("fh:biomass", {
 minetest.register_node("fh:comb", {
 	description = "comb",
 	tiles = {"comb.png"},
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 0, hive = 1},
+	groups = {choppy = 1, flammable = 1, hive = 1},
 	sounds = mod_def and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
 })
@@ -66,7 +66,7 @@ minetest.register_node("fh:comb", {
 minetest.register_node("fh:tendril", {
 	description = "tendril",
 	tiles = {"tendril_top.png", "tendril_top.png", "tendril.png"},
-	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 0, hive = 1},
+	groups = {choppy = 1, flammable = 1, hive = 1},
 	sounds = mod_def and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
 	paramtype2 = "facedir",
@@ -88,7 +88,7 @@ minetest.register_node("fh:heart", {
 	mesh = "heart.obj",
 	tiles = {"biomass.png", "alien_metal.png"},
 	is_ground_content = false,
-	groups = {cracky = 1, level = 2, hive = 1},
+	groups = {cracky = 1, level = 3, hive = 1},
 	sounds = default.node_sound_metal_defaults(),
 })
 
@@ -98,7 +98,7 @@ minetest.register_node("fh:polyp", {
 	mesh = "polyp.obj",
 	tiles = {"biomass.png", "alien_metal.png"},
 	is_ground_content = false,
-	groups = {cracky = 1, level = 2, hive = 1},
+	groups = {cracky = 1, level = 2, hive = 1, flammable = 3},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -173,7 +173,7 @@ local function register_node_with_alien_grass(name, base)
 		tiles = {base .. "^alien_grass.png", base,
 			{name = base.."^alien_grass_side.png",
 				tileable_vertical = false}},
-		groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1, hive = 1},
+		groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1, hive = 1, flammable = 1},
 		drop = "fh:biomass",
 		waving = 3,
 		sounds = default.node_sound_dirt_defaults({

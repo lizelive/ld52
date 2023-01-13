@@ -11,6 +11,8 @@ local settings = {
         consume = {name = "fh:consume", cost = 100},
         chiten = {name = "fh:chiten", cost = 10},
         biomass = {name = "fh:biomass", cost = 10}
-    }
+    },
+    safezone_radius = 10,
+    safezone_duration = 5 * 24 * 60 * 60,
 }
 return settings

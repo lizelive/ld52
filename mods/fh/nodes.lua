@@ -51,7 +51,15 @@ minetest.register_node("fh:biomass", {
 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 0, hive = 1},
 	sounds = mod_def and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
-	on_use = minetest.item_eat(20)
+})
+
+
+minetest.register_node("fh:comb", {
+	description = "comb",
+	tiles = {"comb.png"},
+	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 0, hive = 1},
+	sounds = mod_def and default.node_sound_leaves_defaults(),
+	on_place = minetest.rotate_node,
 })
 
 
@@ -62,7 +70,6 @@ minetest.register_node("fh:tendril", {
 	sounds = mod_def and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
 	paramtype2 = "facedir",
-	on_use = minetest.item_eat(20)
 })
 
 
@@ -325,7 +332,7 @@ minetest.register_decoration({
 })
 
 minetest.register_abm({
-	label = "Harvest",
+	label = "Hive Spread",
 	nodenames = {"group:organic"},
 	neighbors = {"group:hive"},
 	interval = 6,
@@ -333,3 +340,4 @@ minetest.register_abm({
 	catch_up = true,
 	action = fh.corrupt
 })
+

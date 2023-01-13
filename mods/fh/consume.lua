@@ -42,6 +42,8 @@ local function absorb(player, pos)
     local obj_list = minetest.get_objects_in_area(pos1, pos2)
     for _, obj in pairs(obj_list) do
         if obj == player then break end
+        -- don't kill aliens
+        if not fh.class_is_survivor(obj) then break end
         local hp = obj:get_hp()
         -- local new_hp = math.max(0, hp - 10)
         -- obj:set_hp(new_hp)

@@ -38,3 +38,18 @@
 [submodule "hudbars"]
 	path = mods/content/hudbars
 	url = https://codeberg.org/Wuzzy/minetest_hudbars.git
+[submodule "mods/content/nether"]
+	path = mods/content/nether
+	url = https://github.com/minetest-mods/nether.git
+[submodule "mods/content/ethereal"]
+	path = mods/content/ethereal
+	url = https://notabug.org/TenPlus1/ethereal.git
+[submodule "mods/content/ethereal_bosses"]
+	path = mods/content/ethereal_bosses
+	url = https://codeberg.org/duckgo/ethereal_bosses.git
+[submodule "mods/content/awards"]
+	path = mods/content/awards
+	url = https://gitlab.com/rubenwardy/awards.git
+[submodule "pep"]
+	path = mods/content/pep
+	url = https://repo.or.cz/minetest_pep.git

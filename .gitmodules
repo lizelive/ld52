@@ -34,3 +34,6 @@
 [submodule "playereffects"]
 	path = mods/content/playereffects
 	url = https://repo.or.cz/minetest_playereffects.git
+[submodule "creatura"]
+	path = mods/content/creatura
+	url = https://github.com/ElCeejo/creatura.git

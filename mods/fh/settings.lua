@@ -9,9 +9,11 @@ local settings = {
     shop = {
         tank = {name = "lh_mobs:dungeon_master", cost = 1000},
         spore = {name = "fh:spore", cost = 100},
+        scythe = {name = "fh:scythe", cost = 5000},
         consume = {name = "fh:consume", cost = 100},
         chiten = {name = "fh:chiten", cost = 10},
-        biomass = {name = "fh:biomass", cost = 10}
+        biomass = {name = "fh:biomass", cost = 10},
+        vine = {name = "fh:vine", cost = 500},
     },
     safezone_radius = 20,
     safezone_duration = 5 * 24 * 60 * 60,

@@ -25,3 +25,9 @@
 [submodule "textures"]
 	path = textures
 	url = https://github.com/MysticTempest/REFI_Textures.git
+[submodule "splooshy_bombs"]
+	path = mods/content/splooshy_bombs
+	url = https://codeberg.org/ekl/splooshy_bombs.git
+[submodule "splooshy_bombs_api"]
+	path = mods/content/splooshy_bombs_api
+	url = https://codeberg.org/ekl/splooshy_bombs_api.git

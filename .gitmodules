@@ -31,3 +31,6 @@
 [submodule "splooshy_bombs_api"]
 	path = mods/content/splooshy_bombs_api
 	url = https://codeberg.org/ekl/splooshy_bombs_api.git
+[submodule "playereffects"]
+	path = mods/content/playereffects
+	url = https://repo.or.cz/minetest_playereffects.git

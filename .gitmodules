@@ -1,9 +1,6 @@
 [submodule "mobs_redo"]
 	path = mods/content/mobs_redo
 	url = https://notabug.org/tenplus1/mobs_redo.git
-[submodule "hudbars"]
-	path = mods/content/hudbars
-	url = https://codeberg.org/Wuzzy/minetest_hudbars.git
 [submodule "player_monoids"]
 	path = mods/content/player_monoids
 	url = https://github.com/minetest-mods/player_monoids.git
@@ -37,3 +34,7 @@
 [submodule "creatura"]
 	path = mods/content/creatura
 	url = https://github.com/ElCeejo/creatura.git
+	
+[submodule "hudbars"]
+	path = mods/content/minetest_hudbars
+	url = https://codeberg.org/Wuzzy/minetest_hudbars.git

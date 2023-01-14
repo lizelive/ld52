@@ -18,6 +18,8 @@ dofile(path .. "/items.lua")
 dofile(path .. "/hudbar.lua")
 dofile(path .. "/human_sense.lua")
 dofile(path .. "/class.lua")
+dofile(path .. "/safezone.lua")
+dofile(path .. "/flamer.lua")
 
 function fh.step_player(player, dtime)
     local meta = player:get_meta()
@@ -34,10 +36,13 @@ function fh.step_player(player, dtime)
     local player_name = player:get_player_name()
     local hunger = hbhunger.hunger[player_name]
 
+
+    hunger = hunger - fh.settings.hunger_per_tick
+
     if class_is_survivor then
-       
         -- do it
         -- idk
+        -- damage humans standing on bad stuff
     else
         if hive_blocks_near then
             biomass = biomass + 1
@@ -55,8 +60,18 @@ function fh.step_player(player, dtime)
     meta:set_int(fh.keys.harvest, harvest)
     meta:set_int(fh.keys.biomass, biomass)
     hbhunger.hunger[player_name] = hunger
+    hbhunger.set_hunger_raw(player)
 
-    -- damage humans standing on bad stuff
 end
 
+
+
+
+
+
+
+
+
+
 dofile(path .. "/register.lua")
+

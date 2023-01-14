@@ -9,8 +9,15 @@ minetest.register_craftitem("fh:fragment", {
 	groups = {lh = 1, flammable = 0},
 })
 
-minetest.register_craftitem("fh:one", {
-	description = S("Alien Fragment"),
+minetest.register_craftitem("fh:scrap", {
+	description = S("Scrap"),
+	inventory_image = "alien_fragment.png",
+	-- on_use = minetest.item_eat(5),
+	groups = {lh = 1, flammable = 0},
+})
+
+minetest.register_craftitem("fh:jelly", {
+	description = S("Jelly"),
 	inventory_image = "alien_fragment.png",
 	-- on_use = minetest.item_eat(5),
 	groups = {lh = 1, flammable = 0},

@@ -43,7 +43,7 @@ local function absorb(player, pos)
     for _, obj in pairs(obj_list) do
         if obj == player then break end
         -- don't kill aliens
-        if not fh.class_is_survivor(obj) then break end
+        if not ( obj:is_player() and fh.class_is_survivor(obj)) then break end
         local hp = obj:get_hp()
         -- local new_hp = math.max(0, hp - 10)
         -- obj:set_hp(new_hp)

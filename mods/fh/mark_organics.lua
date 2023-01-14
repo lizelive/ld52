@@ -3,6 +3,7 @@ local S = default.get_translator
 local target_absorb_from_mob = 10
 
 local organic_groups = {
+    dry_grass = "fh:dirt_with_alien_grass",
     fleshy = "fh:biomass", meat = "fh:biomass",
     eatable = "fh:biomass", flora = "fh:alien_egg",
     leaves="fh:trickle",

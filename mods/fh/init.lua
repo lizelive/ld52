@@ -60,7 +60,6 @@ function fh.step_player(player, dtime)
         hb.change_hudbar(player, fh.keys.biomass, biomass)
         hb.change_hudbar(player, fh.keys.harvest, harvest)
     end
-
     
     meta:set_int(fh.keys.harvest, harvest)
     meta:set_int(fh.keys.biomass, biomass)

@@ -116,6 +116,12 @@ minetest.register_node("fh:heart", {
 			{items = {"fh:fragment"}, min = 1, max = 3},
 		}
 	},
+	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
+		local name = player:get_player_name()
+		local pos = player:get_pos()
+		beds.spawn[name] = pos
+		beds.set_spawns() 
+	end,
 	light_source = minetest.LIGHT_MAX,
 	sounds = default.node_sound_metal_defaults(),
 })

@@ -1,2 +1,40 @@
-Wuzzy/pep
-Wuzzy/playereffects
+# removed becuse th
+# Wuzzy/pep
+# Wuzzy/playereffects
+Wuzzy/tt
+
+IcyDiamond/fluid_lib
+VanessaE/basic_materials
+VanessaE/pipeworks
+
+# sounds
+SilverSandstone/subtitles
+AntumDeluge/sounds
+
+
+
+# ui stuff
+luk3yx/flow
+
+# mic mod lib
+LMD/modlib
+
+# theFox/modutil
+
+# weather
+TestificateMods/climate_api
+TestificateMods/regional_weather
+sofar/lightning
+
+# allow fallback
+SFENCE/adaptation_modpack
+
+# useful gpl
+giov4/skills
+# might be standin?
+domtron vox/skillsframework
+
+
+
+# fire, need to modify to use monads
+Lone_Wolf/fire_plus

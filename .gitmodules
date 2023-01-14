@@ -45,3 +45,12 @@
 [submodule "alchemy"]
 	path = mods/content/alchemy
 	url = https://github.com/TheAlchemist0033/alchemy.git
+[submodule "3d_armor_flyswim"]
+	path = mods/content/3d_armor_flyswim
+	url = https://github.com/sirrobzeroone/3d_armor_flyswim
+[submodule "tt"]
+	path = mods/content/tt
+	url = https://repo.or.cz/minetest_tt.git
+[submodule "flow"]
+	path = mods/content/flow
+	url = https://github.com/luk3yx/minetest-flow

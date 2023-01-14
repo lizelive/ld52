@@ -22,6 +22,8 @@ dofile(path .. "/safezone.lua")
 dofile(path .. "/flamer.lua")
 dofile(path .. "/vine.lua")
 
+dofile(path .. "/mapgen.lua")
+
 local hbhunger = hbhunger or {hunger = {}, SAT_MAX = 0, set_hunger_raw = function() end}
 
 function fh.step_player(player, dtime)

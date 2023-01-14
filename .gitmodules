@@ -7,9 +7,6 @@
 [submodule "hbhunger"]
 	path = mods/content/hbhunger
 	url = https://codeberg.org/Wuzzy/minetest_hbhunger.git
-[submodule "i3"]
-	path = mods/content/i3
-	url = https://github.com/minetest-mods/i3.git
 [submodule "hbsprint"]
 	path = mods/content/hbsprint
 	url = https://github.com/minetest-mods/hbsprint.git
@@ -54,3 +51,9 @@
 [submodule "flow"]
 	path = mods/content/flow
 	url = https://github.com/luk3yx/minetest-flow
+[submodule "unified_inventory"]
+	path = mods/content/unified_inventory
+	url = https://github.com/minetest-mods/unified_inventory
+[submodule "formspec_ast"]
+	path = mods/content/formspec_ast
+	url = https://gitlab.com/luk3yx/minetest-formspec_ast

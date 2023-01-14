@@ -37,6 +37,3 @@
 [submodule "creatura"]
 	path = mods/content/creatura
 	url = https://github.com/ElCeejo/creatura.git
-[submodule "hudbars"]
-	path = mods/content/hudbars
-	url = https://codeberg.org/Wuzzy/minetest_hudbars.git

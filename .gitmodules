@@ -41,3 +41,7 @@
 [submodule "mods/content/awards"]
 	path = mods/content/awards
 	url = https://gitlab.com/rubenwardy/awards.git
+
+[submodule "alchemy"]
+	path = mods/content/alchemy
+	url = https://github.com/TheAlchemist0033/alchemy.git

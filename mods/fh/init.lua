@@ -20,6 +20,7 @@ dofile(path .. "/human_sense.lua")
 dofile(path .. "/class.lua")
 dofile(path .. "/safezone.lua")
 dofile(path .. "/flamer.lua")
+dofile(path .. "/vine.lua")
 
 function fh.step_player(player, dtime)
     local meta = player:get_meta()

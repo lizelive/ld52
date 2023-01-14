@@ -51,22 +51,44 @@ minetest.register_node("fh:biomass", {
 	groups = {choppy = 1, flammable = 1, hive = 1},
 	sounds = mod_def and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
+
+	on_use = function (itemstack, player, pointed_thing)
+		local meta = player:get_meta()
+		local biomass = meta:get_int(fh.keys.biomass)
+		local hp = player:get_hp()
+		local class_is_survivor = fh.class_is_survivor(player)
+
+		if class_is_survivor then
+			player:set_hp(hp - 10)
+		else
+			meta:set_int(fh.keys.biomass, biomass + 10)
+		end
+			itemstack:take_item()
+		return itemstack
+	end,
 })
 
 
 minetest.register_node("fh:comb", {
 	description = "comb",
 	tiles = {"comb.png"},
-	groups = {choppy = 1, flammable = 1, hive = 1},
+	groups = {choppy = 2, flammable = 1, hive = 1, oddly_breakable_by_hand = 1 },
 	sounds = mod_def and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {"fh:jelly"}, min = 4, max = 10},
+			{items = {"fh:comb"}}
+		}
+	}
 })
 
 
 minetest.register_node("fh:tendril", {
 	description = "tendril",
 	tiles = {"tendril_top.png", "tendril_top.png", "tendril.png"},
-	groups = {choppy = 1, flammable = 1, hive = 1},
+	groups = {choppy = 1, flammable = 1, hive = 1, log = 1, wood = 1},
 	sounds = mod_def and default.node_sound_leaves_defaults(),
 	on_place = minetest.rotate_node,
 	paramtype2 = "facedir",
@@ -89,6 +111,12 @@ minetest.register_node("fh:heart", {
 	tiles = {"biomass.png", "alien_metal.png"},
 	is_ground_content = false,
 	groups = {cracky = 1, level = 3, hive = 1},
+	drop = {
+		items = {
+			{items = {"fh:fragment"}, min = 1, max = 3},
+		}
+	},
+	light_source = minetest.LIGHT_MAX,
 	sounds = default.node_sound_metal_defaults(),
 })
 
@@ -109,6 +137,11 @@ minetest.register_node("fh:chiten", {
 	is_ground_content = false,
 	groups = {cracky = 1, level = 2, hive = 1},
 	sounds = default.node_sound_metal_defaults(),
+	drop = {
+		items = {
+			{items = {"fh:scrap"}, min = 3, max = 9},
+		}
+	},
 })
 
 minetest.register_node("fh:alien_metal_with_vine_drill", {

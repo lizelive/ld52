@@ -3,7 +3,7 @@ local path = minetest.get_modpath(modname)
 local S = default.get_translator
 
 minetest.register_tool("fh:flamer", {
-	description = S("Flammer"),
+	description = S("Flamer"),
 	inventory_image = "flamer.png",
 	sound = {breaks = "default_tool_breaks"},
     range = 100,
@@ -96,11 +96,22 @@ minetest.register_node("fh:dirt_with_scorched_grass", {
 	}),
 })
 
+minetest.register_craft({
+	output = "tnt:tnt_stick",
+	recipe = {{"fh:jelly"}}
+  })
 
 minetest.register_craft({
 	output = "fh:flamer",
 	recipe = {
-		{"fh:fragment", "fh:scrap"}
+		{"fh:jelly", "fh:fragment", "fh:jelly"}
+	}
+})
+
+minetest.register_craft({
+	output = "fh:flamer",
+	recipe = {
+		{"fh:jelly", "fh:fragment", "fh:jelly"}
 	}
 })
 

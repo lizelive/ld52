@@ -65,7 +65,7 @@ minetest.register_abm({
 	-- including the old savanna nodes.
 	-- 'default:dirt_with_grass' is here only because it was allowed before.
 	neighbors = {
-		"group:water"
+		"group:hive"
     },
 	interval = 14,
 	chance = 1,

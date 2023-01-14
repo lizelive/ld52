@@ -38,10 +38,11 @@ mobs:register_mob("fh:spore", {
         minetest.debug("on_replace called pos="..minetest.pos_to_string(pos) .. "owner= ".. self.owner)
     end,
 	jump = true,
-	view_range = 15,
+	view_range = 40,
 	drops = {
-		{name = "fh:fragment", chance = 1, min = 0, max = 4},
-		{name = "fh:biomass", chance = 2, min = 0, max = 2},
+		{name = "fh:fragment", chance = 1, min = 4, max = 10},
+		{name = "fh:scrap", chance = 1, min = 0, max = 1},
+		{name = "fh:biomass", chance = 1, min = 5, max = 10},
 	},
 	water_damage = 0,
 	lava_damage = 0,

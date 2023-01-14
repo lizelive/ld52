@@ -22,6 +22,8 @@ dofile(path .. "/safezone.lua")
 dofile(path .. "/flamer.lua")
 dofile(path .. "/vine.lua")
 
+local hbhunger = hbhunger or {hunger = {}, SAT_MAX = 0, set_hunger_raw = function() end}
+
 function fh.step_player(player, dtime)
     local meta = player:get_meta()
     local class_is_survivor = fh.class_is_survivor(player)
@@ -30,12 +32,12 @@ function fh.step_player(player, dtime)
 
     local pos = player:get_pos()
     local radius = 3
-    local nodenames = {"fh:hive"}
+    local nodenames = {"group:hive"}
     
     local hive_blocks_near =  minetest.find_node_near(pos, radius, nodenames)
 
     local player_name = player:get_player_name()
-    local hunger = hbhunger.hunger[player_name]
+    local hunger = hbhunger.hunger[player_name] or 0
 
 
     hunger = hunger - fh.settings.hunger_per_tick
@@ -48,7 +50,7 @@ function fh.step_player(player, dtime)
         if hive_blocks_near then
             biomass = biomass + 1
             end
-        if hunger and (hunger < hbhunger.SAT_MAX ) and ( biomass > fh.settings.biomass_per_hunger) then
+        if hunger and (hunger + 1 <= hbhunger.SAT_MAX ) and ( biomass > fh.settings.biomass_per_hunger) then
             hunger = hunger + 1
             biomass = biomass - fh.settings.biomass_per_hunger
             hunger = math.min(hunger, hbhunger.SAT_MAX)

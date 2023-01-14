@@ -11,14 +11,28 @@ minetest.register_craftitem("fh:fragment", {
 
 minetest.register_craftitem("fh:scrap", {
 	description = S("Scrap"),
-	inventory_image = "alien_fragment.png",
+	inventory_image = "scrap.png",
 	-- on_use = minetest.item_eat(5),
 	groups = {lh = 1, flammable = 0},
 })
 
 minetest.register_craftitem("fh:jelly", {
 	description = S("Jelly"),
-	inventory_image = "alien_fragment.png",
+	inventory_image = "jelly.png",
 	-- on_use = minetest.item_eat(5),
 	groups = {lh = 1, flammable = 0},
+})
+
+
+minetest.register_craft({
+	type = "cooking",
+	output = "default:steel_ingot",
+	recipe = "fh:scrap",
+})
+
+
+minetest.register_craft({
+	type = "fuel",
+	burntime = 400,
+	recipe = "fh:jelly",
 })

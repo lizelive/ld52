@@ -30,10 +30,12 @@
   # inputs.c_hudbars = "https://codeberg.org/Wuzzy/minetest_hudbars.git";
   # inputs.c_hudbars.flake = false;
   outputs = { self, nixpkgs }: 
+  with nixpkgs.legacyPackages.x86_64-linux;
   let 
-  newDrv = with nixpkgs.legacyPackages.x86_64-linux; stdenv.mkDerivation {
+  c_i3 = callPackage ./i3 { };
+  newDrv = stdenv.mkDerivation {
     name = "minetestserver";
-    src = ./.;
+    src = ./.; 
     buildInputs = [ minetestserver ];
     phases = [ "buildPhase" ];
     buildPhase = ''
@@ -42,6 +44,7 @@
       cp -r ${minetestserver}/share/ $out/share/
       chmod +w $out/share/minetest/games/
       cp -r $src/ $out/share/minetest/games/ld52/
+      ln -s ${c_i3}/ $out/share/minetest/games/ld52/mods/i3
     '';
   };
   in

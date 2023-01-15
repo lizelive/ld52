@@ -32,7 +32,7 @@
   outputs = { self, nixpkgs }: 
   with nixpkgs.legacyPackages.x86_64-linux;
   let 
-  c_i3 = callPackage ./i3 { };
+  # c_i3 = callPackage ./i3.nix { };
   newDrv = stdenv.mkDerivation {
     name = "minetestserver";
     src = ./.; 
@@ -44,7 +44,8 @@
       cp -r ${minetestserver}/share/ $out/share/
       chmod +w $out/share/minetest/games/
       cp -r $src/ $out/share/minetest/games/ld52/
-      ln -s ${c_i3}/ $out/share/minetest/games/ld52/mods/i3
+      chmod +w $out/share/minetest/games/ld52/mods/
+      # ln -s ${c_i3}/ $out/share/minetest/games/ld52/mods/i3
     '';
   };
   in

@@ -84,45 +84,45 @@ end)
 
 -- nice
 
-i3.new_tab("scyther", {
-	description = "scyther shop",
-	image = "eat_tool.png", -- Optional, add an image next to the tab description
+-- i3.new_tab("scyther", {
+-- 	description = "scyther shop",
+-- 	image = "eat_tool.png", -- Optional, add an image next to the tab description
 
-	--
-	-- The functions below are all optional
-	--
+-- 	--
+-- 	-- The functions below are all optional
+-- 	--
 
-	-- Determine if the tab is visible by a player, return false to hide the tab
-	access = function(player, data)
-		-- local name = player:get_player_name()
-        return not fh.class_is_survivor(player)
-		-- return name == "singleplayer"
-	end,
+-- 	-- Determine if the tab is visible by a player, return false to hide the tab
+-- 	access = function(player, data)
+-- 		-- local name = player:get_player_name()
+--         return not fh.class_is_survivor(player)
+-- 		-- return name == "singleplayer"
+-- 	end,
 
-	formspec = function(player, data, fs)
-		fs("label", 1, 1, "Harvester Shop")
-        local i = 0
-        local size = 1
-        for name, v in pairs(fh.settings.shop) do
-            fs("item_image_button", 0, 1 + i, size, size, v.name, "buy_" .. name, v.cost .. " biomass")
-            i = i + size
-        end
-		-- No need to return anything
-	end,
+-- 	formspec = function(player, data, fs)
+-- 		fs("label", 1, 1, "Harvester Shop")
+--         local i = 0
+--         local size = 1
+--         for name, v in pairs(fh.settings.shop) do
+--             fs("item_image_button", 0, 1 + i, size, size, v.name, "buy_" .. name, v.cost .. " biomass")
+--             i = i + size
+--         end
+-- 		-- No need to return anything
+-- 	end,
 
-	-- Events handling happens here
-	fields = function(player, data, fields)
-        for name, v in pairs(fh.settings.shop) do
-            if fields["buy_" .. name] then
-                local biomass = player:get_meta():get_int(fh.keys.biomass)
-                if biomass >= v.cost then
-                    local item_stack = ItemStack(v.name)
-                    item_stack:set_count(1)
-                    player:get_inventory():add_item("main", item_stack)
-                    player:get_meta():set_int(fh.keys.biomass, biomass - v.cost)
-                end
-            end
-        end
-		i3.set_fs(player) -- Update the formspec, mandatory
-	end,
-})
+-- 	-- Events handling happens here
+-- 	fields = function(player, data, fields)
+--         for name, v in pairs(fh.settings.shop) do
+--             if fields["buy_" .. name] then
+--                 local biomass = player:get_meta():get_int(fh.keys.biomass)
+--                 if biomass >= v.cost then
+--                     local item_stack = ItemStack(v.name)
+--                     item_stack:set_count(1)
+--                     player:get_inventory():add_item("main", item_stack)
+--                     player:get_meta():set_int(fh.keys.biomass, biomass - v.cost)
+--                 end
+--             end
+--         end
+-- 		i3.set_fs(player) -- Update the formspec, mandatory
+-- 	end,
+-- })

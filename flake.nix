@@ -38,13 +38,9 @@
     phases = [ "buildPhase" ];
     buildPhase = ''
       mkdir -p $out/bin
-      cp ${minetestserver}/bin/minetestserver $out/bin/minetestserver
-      # substituteAllInPlace $out/bin/minetestserver \
-      #   --replace ${minetestserver}/share $out/share
-      sed -i "s|${minetestserver}/share|$out/share|g" $out/bin/minetestserver
+      ln -s ${minetestserver}/bin/minetestserver $out/bin/minetestserver
       cp -r ${minetestserver}/share/ $out/share/
       chmod +w $out/share/minetest/games/
-      ls -l $out/share/minetest/games/
       cp -r $src/ $out/share/minetest/games/ld52/
     '';
   };

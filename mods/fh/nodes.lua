@@ -85,15 +85,6 @@ minetest.register_node("fh:comb", {
 })
 
 
-minetest.register_node("fh:tendril", {
-	description = "tendril",
-	tiles = {"tendril_top.png", "tendril_top.png", "tendril.png"},
-	groups = {choppy = 1, flammable = 1, hive = 1, log = 1, wood = 1},
-	sounds = mod_def and default.node_sound_leaves_defaults(),
-	on_place = minetest.rotate_node,
-	paramtype2 = "facedir",
-})
-
 
 -- minetest.register_node("fh:alienmetalblock", {
 -- 	description = "alien metal block",
@@ -104,27 +95,6 @@ minetest.register_node("fh:tendril", {
 -- })
 
 
-minetest.register_node("fh:heart", {
-	description = "heart",
-	drawtype = "mesh",
-	mesh = "heart.obj",
-	tiles = {"biomass.png", "alien_metal.png"},
-	is_ground_content = false,
-	groups = {cracky = 1, level = 3, hive = 1},
-	drop = {
-		items = {
-			{items = {"fh:fragment"}, min = 1, max = 3},
-		}
-	},
-	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
-		local name = player:get_player_name()
-		local pos = player:get_pos()
-		beds.spawn[name] = pos
-		beds.set_spawns() 
-	end,
-	light_source = minetest.LIGHT_MAX,
-	sounds = default.node_sound_metal_defaults(),
-})
 
 minetest.register_node("fh:polyp", {
 	description = "polyp",
@@ -303,61 +273,6 @@ local spread_correspondences = {
 	["stairs:stair_outer_cobble"] = "stairs:stair_outer_mossycobble",
 	["walls:cobble"] = "walls:mossycobble",
 }
-
-
-minetest.register_node("fh:forge", {
-    description = "Forge",
-    tiles = {"market_vertical.png", "market_vertical.png", "market.png"},
-	infotext="Forge high tier mats from drops",
-
-	on_construct = function(pos)
-		local meta = minetest.get_meta(pos)
-		meta:set_string("infotext", "Forge high tier mats from drops");
-		local     formspec = "size[8,8.5]"..
-		"image[2.75,1.5;1,1;default_furnace_fire_bg.png]"..
-		"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
-		"list[context;out;4.75,0.96;1,1;]"..
-		"list[current_player;main;0,4.25;9,4;]"..
-		"listring[context;out]"..
-		"listring[current_player;main]";
-		meta:set_string("formspec", formspec);
-		local inv = meta:get_inventory()
-		inv:set_size('out', 1)
-	end,
-	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
-		return stack:get_count()
-	end
-})
-
-minetest.register_node("fh:trickle", {
-	description = S("trickles"),
-	drawtype = "allfaces_optional",
-	waving = 1,
-	tiles = {"alien_corruption.png"},
-	special_tiles = {"biomass.png"},
-	paramtype = "light",
-	is_ground_content = false,
-	groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, hive = 1},
-	drop = {
-		max_items = 1,
-		items = {
-			{
-				-- player will get sapling with 1/20 chance
-				items = {"default:sapling"},
-				rarity = 20,
-			},
-			{
-				-- player will get leaves only if he get no saplings,
-				-- this is because max_items is 1
-				items = {"fh:trickle"},
-			}
-		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-
-	after_place_node = default.after_place_leaves,
-})
-
 
 
 minetest.register_decoration({

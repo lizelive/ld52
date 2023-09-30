@@ -18,6 +18,11 @@ local settings = {
         polyp = {name = "fh:polyp", cost = 50},
         -- scythe = {name = "fh:scythe", cost = 5000},
     },
+    shop_survivor = {
+        sword_bronze = { name = "default:sword_bronze", cost = 100},
+        sword_steel = { name = "default:sword_steel", cost = 300},
+        rocket_tube_loaded = { name = "splooshy_bombs_rpg:rocket_tube_loaded", cost = 1000},
+    },
     safezone_radius = 20,
     safezone_duration = 5 * 24 * 60 * 60,
 }

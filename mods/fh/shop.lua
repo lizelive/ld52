@@ -1,3 +1,4 @@
+-- player shop uwu
 
 local S = default.get_translator
 local mod_def = minetest.get_modpath("default")
@@ -20,14 +21,14 @@ hive_gui = flow.make_gui(function(_player, _ctx)
     -- gui.VBox is a "container element" added by this mod.
 
     local shop_ui = {
-        name = "hive_gui",
+        name = "forge_gui",
         h = 10,
         w = 10,
 
     }
 
     -- ScrollContainer
-    for name, v in pairs(fh.settings.shop) do
+    for name, v in pairs(fh.settings.shop_survivor) do
         shop_ui[#shop_ui + 1] = gui.ItemImageButton {
             w = 1, h= 1,
             name = name,
@@ -75,20 +76,18 @@ hive_gui = flow.make_gui(function(_player, _ctx)
 }
 end)
 
-minetest.register_node("fh:heart", {
-	description = "heart",
-	drawtype = "mesh",
-	mesh = "heart.obj",
-	tiles = {"biomass.png", "alien_metal.png"},
+minetest.register_node("fh:forge", {
+	description = "forge",
+    tiles = {"market_vertical.png", "market_vertical.png", "market.png"},
 	is_ground_content = false,
-	groups = {cracky = 1, level = 3, hive = 1},
+	groups = {},
 	drop = {
 		items = {
 			{items = {"fh:fragment"}, min = 1, max = 3},
 		}
 	},
 	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
-        if not fh.class_is_survivor(player) then
+        if fh.class_is_survivor(player) then
 		hive_gui:show(player)
         end
 
@@ -97,76 +96,3 @@ minetest.register_node("fh:heart", {
 	sounds = default.node_sound_metal_defaults(),
 })
 
-
-
-minetest.register_node("fh:tendril", {
-	description = "tendril",
-	tiles = {"tendril_top.png", "tendril_top.png", "tendril.png"},
-	groups = {choppy = 1, flammable = 1, hive = 1, log = 1, wood = 1},
-	sounds = mod_def and default.node_sound_leaves_defaults(),
-	on_place = minetest.rotate_node,
-	paramtype2 = "facedir",
-})
-
-
-minetest.register_node("fh:piller", {
-	description = S("piller"),
-	drawtype = "allfaces_optional",
-	waving = 1,
-	tiles = {"alien_corruption.png"},
-	-- special_tiles = {"biomass.png"},
-	paramtype = "light",
-	is_ground_content = false,
-	groups = {fleshy = 1, leafdecay = 3, flammable = 2, leaves = 1, hive = 1, falling_node = 1, dig_immediate = 3},
-	-- drop = "",
-    on_timer = function(pos, elapsed)
-        local above = vector.offset(pos, 0, 1, 0)
-        minetest.remove_node(pos)
-        minetest.check_for_falling(above)
-    end,
-	sounds = default.node_sound_leaves_defaults(),
-    on_construct = function(pos)
-        minetest.get_node_timer(pos):start(0.1)
-    end,
-    after_place_node = function(pos, placer, itemstack, pointed_thing)
-        minetest.get_node_timer(pos):start(3)
-    end,
-	-- after_place_node = default.after_place_leaves,
-})
-
-
-
-minetest.register_node("fh:trickle", {
-	description = S("trickles"),
-	drawtype = "allfaces_optional",
-	waving = 1,
-	tiles = {"alien_corruption.png"},
-	-- special_tiles = {"biomass.png"},
-	paramtype = "light",
-	is_ground_content = false,
-	groups = {fleshy = 3, leafdecay = 3, flammable = 2, leaves = 1, hive = 1},
-	drop = {
-		max_items = 1,
-		items = {
-			{
-				-- player will get sapling with 1/20 chance
-				items = {"fh:alien_egg"},
-				rarity = 20,
-			},
-			{
-				-- player will get leaves only if he get no saplings,
-				-- this is because max_items is 1
-				items = {"fh:trickle"},
-			}
-		}
-	},
-	sounds = default.node_sound_leaves_defaults(),
-
-	-- after_place_node = default.after_place_leaves,
-})
-
-default.register_leafdecay({
-    trunks = {"fh:tendril"},
-    leaves = {"fh:trickle"},
-    radius = 2,
-})

@@ -71,7 +71,7 @@ end
 
 -- local function change_to_scyther
 
-minetest.register_chatcommand("become_scyther", {
+minetest.register_chatcommand("ba", {
     params = "",
     privs = {
         -- server=true
@@ -87,6 +87,26 @@ minetest.register_chatcommand("become_scyther", {
         meta:set_int(fh.keys.harvest, fh.settings.start_harvest)
         fh.class_set(player, fh.class_scyther)
         become_scyther(player)
+        -- "player_back.png"
+    end
+})
+
+
+minetest.register_chatcommand("bs", {
+    params = "",
+    privs = {
+        -- server=true
+    },
+
+    description = S("become a survivor"),
+    func = function(player_name, _)
+        -- entity_modifier.disguise_to_model(player_name, "lh_mobs:tank", nil)
+        local player = minetest.get_player_by_name(player_name)
+        local meta = player:get_meta()
+        meta:set_int(fh.keys.biomass, fh.settings.start_biomass)
+        meta:set_int(fh.keys.harvest, fh.settings.start_harvest)
+        fh.class_set(player, fh.class_survivor)
+        become_survivor(player)
         -- "player_back.png"
     end
 })

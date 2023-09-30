@@ -64,7 +64,7 @@ minetest.register_tool("fh:flamer", {
 			elseif minetest.get_item_group(node_under, "flammable") >= 1
 					and minetest.get_node(pointed_thing.above).name == "air" then
 				minetest.set_node(pointed_thing.above, {name = "fire:basic_flame"})
-            elseif minetest.get_item_group(node_under, "grass") then
+            elseif minetest.get_item_group(node_under, "grass") ==1 then
                 minetest.env:set_node(pointed_thing.under, {name="fh:dirt_with_scorched_grass"})
             end
 		end

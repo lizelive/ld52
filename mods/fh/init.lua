@@ -21,8 +21,9 @@ dofile(path .. "/class.lua")
 dofile(path .. "/safezone.lua")
 dofile(path .. "/flamer.lua")
 dofile(path .. "/vine.lua")
-
 dofile(path .. "/mapgen.lua")
+dofile(path .. "/hive.lua")
+dofile(path .. "/shop.lua")
 
 local hbhunger = hbhunger or {hunger = {}, SAT_MAX = 0, set_hunger_raw = function() end}
 

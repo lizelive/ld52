@@ -172,7 +172,7 @@ minetest.register_chatcommand("ps", {
         -- server=true
     },
 
-    description = S("become a scyther"),
+    description = S("protect blocks"),
     func = function(player_name, _)
         -- entity_modifier.disguise_to_model(player_name, "lh_mobs:tank", nil)
         local player = minetest.get_player_by_name(player_name)

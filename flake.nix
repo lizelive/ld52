@@ -45,7 +45,6 @@
       chmod +w $out/share/minetest/games/
       cp -r $src/ $out/share/minetest/games/ld52/
       chmod +w $out/share/minetest/games/ld52/mods/
-      # ln -s ${c_i3}/ $out/share/minetest/games/ld52/mods/i3
     '';
   };
   in

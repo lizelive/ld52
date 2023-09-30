@@ -21,10 +21,16 @@ local half_night_size = night_size / 2
 
 local function hide_nametag(player)
     player:set_nametag_attributes({color = {a = 0, r = 255, g = 255, b = 255}})
+    player:set_properties({
+        show_on_minimap = false
+    })
 end
 
 local function show_nametag(player)
     player:set_nametag_attributes({color = {a = 255, r = 255, g = 255, b = 255}})
+    player:set_properties({
+        show_on_minimap = true
+    })
 end
 
 local function get_is_day()
